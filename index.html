@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tallero — Settle the Score. The score-keeper for game night.</title>
+<meta name="description" content="Tallero is the friendly score-keeper for card games and game nights. 20+ games built in, custom scoring, dark mode, no account needed — it all stays on your iPhone."/>
+<link rel="icon" href="assets/icon-app.svg"/>
+<meta property="og:title" content="Tallero — Settle the Score."/>
+<meta property="og:description" content="The friendly score-keeper for card games and game nights. 20+ games built in. No account. Free."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://gettallero.com"/>
+<meta property="og:image" content="https://gettallero.com/assets/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Tallero — Settle the Score."/>
+<meta name="twitter:description" content="The friendly score-keeper for card games and game nights. 20+ games built in. No account."/>
+<meta name="twitter:image" content="https://gettallero.com/assets/og-image.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="tally.css"/>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="lockup" href="index.html" aria-label="Tallero home">
+      <svg class="mark" viewBox="0 0 100 100" fill="none" style="color:var(--ink)" aria-hidden="true">
+        <rect x="13.64" y="13.64" width="11.36" height="72.73" rx="3" fill="#9b7af0"/>
+        <rect x="34.09" y="13.64" width="11.36" height="72.73" rx="3" fill="#e0457b"/>
+        <rect x="54.55" y="13.64" width="11.36" height="72.73" rx="3" fill="#2baa6b"/>
+        <rect x="75" y="13.64" width="11.36" height="72.73" rx="3" fill="#2bafa6"/>
+        <rect x="1.5" y="44" width="97" height="12" rx="3" transform="rotate(-18 50 50)" fill="#D9A934"/>
+      </svg>
+      <span class="wordmark">Tallero</span>
+    </a>
+    <nav class="site-nav">
+      <a href="#features">Features</a>
+      <a href="#games">Games</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <div class="site-header__cta">
+      <a class="appstore appstore--soon" aria-label="Coming soon to the App Store">
+        <svg class="glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="1.7"/>
+          <path d="M12 7.5v6.5m0 0 2.6-2.6M12 14l-2.6-2.6M8 16.6h8" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="tx"><span class="small">Coming soon</span><span class="big">App&nbsp;Store</span></span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <svg class="hero__mark" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <rect x="13.64" y="13.64" width="11.36" height="72.73" rx="3" fill="#9b7af0"/>
+        <rect x="34.09" y="13.64" width="11.36" height="72.73" rx="3" fill="#e0457b"/>
+        <rect x="54.55" y="13.64" width="11.36" height="72.73" rx="3" fill="#2baa6b"/>
+        <rect x="75" y="13.64" width="11.36" height="72.73" rx="3" fill="#2bafa6"/>
+        <rect x="1.5" y="44" width="97" height="12" rx="3" transform="rotate(-18 50 50)" fill="#D9A934"/>
+      </svg>
+      <h1 class="display hero__title">Settle the<br/><span class="gold">score.</span></h1>
+      <p class="hero__sub">Tallero is the friendly score-keeper for card games and game nights. Pick a game, add your players, and start counting — no setup, no fuss.</p>
+      <div class="hero__actions">
+        <a class="appstore appstore--soon" aria-label="Coming soon to the App Store">
+          <svg class="glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="1.7"/>
+            <path d="M12 7.5v6.5m0 0 2.6-2.6M12 14l-2.6-2.6M8 16.6h8" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="tx"><span class="small">Coming soon to the</span><span class="big">App&nbsp;Store</span></span>
+        </a>
+        <a class="btn btn--onblue" href="#features">See what's inside</a>
+      </div>
+      <p class="hero__note">Free in beta · No account · Everything stays on your device.</p>
+    </div>
+
+    <div class="hero__phone">
+      <div class="phone phone--float">
+        <div class="phone__screen" id="homeScreen"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section class="section features" id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Why Tallero</span>
+      <h2>Less keeping score.<br/>More playing.</h2>
+      <p>The pen-and-paper scorepad, rebuilt for the table. Fast to start, impossible to lose, and it does the math for you.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="fcard">
+        <div class="fcard__icon" style="background:#DCE9FB"><img src="assets/games/score.svg" alt=""/></div>
+        <h3>20+ games built in</h3>
+        <p>Hearts, Cribbage, Yahtzee, Euchre, Rummy, Phase 10 and more — each with the right scoring rules baked in.</p>
+      </div>
+      <div class="fcard">
+        <div class="fcard__icon" style="background:#DBEFE0"><img src="assets/games/custom.svg" alt=""/></div>
+        <h3>Score anything</h3>
+        <p>Custom Score for any game on Earth. Set targets, rounds, and high- or low-wins — Tallero handles the totals.</p>
+      </div>
+      <div class="fcard">
+        <div class="fcard__icon" style="background:#E7E2F7"><img src="assets/games/timer.svg" alt=""/></div>
+        <h3>Quick Score &amp; Timer</h3>
+        <p>One tap from the home screen to a blank scoreboard or a countdown. Perfect for a game you're inventing as you go.</p>
+      </div>
+      <div class="fcard">
+        <div class="fcard__icon" style="background:#FAD8DC"><img src="assets/games/hearts.svg" alt=""/></div>
+        <h3>Rosters that remember</h3>
+        <p>Save your regular players with their own colors. Drop them into any game in a tap — no retyping names.</p>
+      </div>
+      <div class="fcard">
+        <div class="fcard__icon" style="background:#FBEAC6"><img src="assets/ui/gear.svg" alt=""/></div>
+        <h3>Light &amp; dark mode</h3>
+        <p>A clean, readable board in any lighting — bright kitchen table or dim back porch. It follows your phone, or pick one.</p>
+      </div>
+      <div class="fcard">
+        <div class="fcard__icon" style="background:#E9EAEF"><img src="assets/games/spades.svg" alt=""/></div>
+        <h3>Yours, on your phone</h3>
+        <p>No account, no sign-up, no cloud. Every game, roster, and setting lives on your device and works fully offline.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GAMES SHOWCASE ============ -->
+<section class="section games-band" id="games">
+  <div class="wrap">
+    <div class="sec-head sec-head--center">
+      <span class="eyebrow">The lineup</span>
+      <h2>Twenty games, one scorepad.</h2>
+      <p>From the classics to game-night staples — and a Custom mode for everything else.</p>
+    </div>
+    <div class="games-grid" id="gamesGrid"></div>
+  </div>
+</section>
+
+<!-- ============ DARK MODE SPLIT ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="split split--blue">
+      <div class="split__copy">
+        <span class="eyebrow">Built for the table</span>
+        <h2>Pick up right where you left off.</h2>
+        <p>Tallero keeps every game in progress so a paused round is never a lost round. Come back tomorrow and your scores are exactly where you left them.</p>
+        <ul class="split__list">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Resume any game from the home screen</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Undo &amp; redo any entry — fix a misclick, no drama</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>A leader crown that makes the standings obvious</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Easy on the eyes in full dark mode</span></li>
+        </ul>
+      </div>
+      <div class="split__media" style="justify-self:center">
+        <div class="phone phone--float">
+          <div class="phone__screen is-dark" id="darkScreen"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIP JAR / PRICING ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="price-card">
+      <span class="eyebrow" style="display:block;margin-bottom:14px">Pricing</span>
+      <div class="tag"><span class="free">Free</span> in beta</div>
+      <p>Tallero is free while we're in beta, and it'll stay free for the first few months after launch — every game included, no ads, no subscriptions. After that we plan a one-time price of around <strong>$4.99</strong> (still being finalized). Pay once, and it's yours for good.</p>
+      <div class="price-pills">
+        <span class="pill"><span class="dot" style="background:#2BAA6B"></span>Free in beta</span>
+        <span class="pill"><span class="dot" style="background:#1B83E0"></span>Then ~$4.99 once</span>
+        <span class="pill"><span class="dot" style="background:#E0457B"></span>No subscription</span>
+        <span class="pill"><span class="dot" style="background:#D9A934"></span>No ads</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section cta">
+  <div class="wrap">
+    <h2 class="display">Be first to play.</h2>
+    <p>Tallero is in beta. Leave your email and we'll tell you the moment it lands on the App Store.</p>
+
+    <form class="notify" id="notifyForm" action="#" method="post" novalidate>
+      <input class="notify__input" id="notifyEmail" type="email" name="email" required
+             autocomplete="email" placeholder="you@example.com" aria-label="Email address" />
+      <button class="notify__btn" type="submit">Notify me</button>
+    </form>
+    <p class="notify__msg" id="notifyMsg" role="status" aria-live="polite"></p>
+    <p class="notify__alt" id="tfWrap" hidden>Already testing? <a id="tfLink" href="#" target="_blank" rel="noopener">Join the TestFlight beta</a></p>
+
+    <div class="actions" style="margin-top:30px">
+      <a class="appstore appstore--soon" aria-label="Coming soon to the App Store">
+        <svg class="glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="1.7"/>
+          <path d="M12 7.5v6.5m0 0 2.6-2.6M12 14l-2.6-2.6M8 16.6h8" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="tx"><span class="small">Coming soon to the</span><span class="big">App&nbsp;Store</span></span>
+      </a>
+      <a class="btn btn--onblue" href="support.html">Get support</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="lockup" href="index.html" aria-label="Tallero home">
+          <svg class="mark" viewBox="0 0 100 100" fill="none" style="color:#fff" aria-hidden="true">
+            <rect x="13.64" y="13.64" width="11.36" height="72.73" rx="3" fill="#9b7af0"/>
+            <rect x="34.09" y="13.64" width="11.36" height="72.73" rx="3" fill="#e0457b"/>
+            <rect x="54.55" y="13.64" width="11.36" height="72.73" rx="3" fill="#2baa6b"/>
+            <rect x="75" y="13.64" width="11.36" height="72.73" rx="3" fill="#2bafa6"/>
+            <rect x="1.5" y="44" width="97" height="12" rx="3" transform="rotate(-18 50 50)" fill="currentColor"/>
+          </svg>
+          <span class="wordmark">Tallero</span>
+        </a>
+        <p class="blurb">The friendly score-keeper for card games and game nights. Settle the score.</p>
+      </div>
+      <div class="fcol">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#games">Games</a></li>
+          <li><a class="js-appstore-link" href="#" aria-disabled="true">App Store (coming soon)</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="mailto:support@gettallero.com">support@gettallero.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span class="small">© <span id="yr">2026</span> Tallero. All rights reserved.</span>
+      <span class="tm">Yahtzee® / Qwirkle® / Flip&nbsp;7™ / Dutch&nbsp;Blitz® / Mölkky® and other game names are trademarks of their respective owners. Tallero is independent and unaffiliated.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ DATA + RENDER ============ -->
+<script>
+/* The 20 built-in games. Tile color = the brand-tinted hue per game.
+   To add/remove a game, edit this one array. */
+var GAMES = [
+  { key:"score",      name:"Quick Score", tile:"#FCE6CE" },
+  { key:"timer",      name:"Quick Timer", tile:"#E7E2F7" },
+  { key:"phase10",    name:"Phase 10",    tile:"#DCE9FB" },
+  { key:"yahtzee",    name:"Yahtzee",     tile:"#E7E2F7" },
+  { key:"cribbage",   name:"Cribbage",    tile:"#FBEAC6" },
+  { key:"euchre",     name:"Euchre",      tile:"#DBEFE0" },
+  { key:"hearts",     name:"Hearts",      tile:"#FAD8DC" },
+  { key:"rummy",      name:"Rummy",       tile:"#FBEAC6" },
+  { key:"ginrummy",   name:"Gin Rummy",   tile:"#E9EAEF" },
+  { key:"spades",     name:"Spades",      tile:"#E9EAEF" },
+  { key:"cornhole",   name:"Cornhole",    tile:"#DBEFE0" },
+  { key:"dominoes",   name:"Dominoes",    tile:"#E9EAEF" },
+  { key:"dutchblitz", name:"Dutch Blitz", tile:"#FCE6CE" },
+  { key:"farkle",     name:"Farkle",      tile:"#FAD8DC" },
+  { key:"flip7",      name:"Flip 7",      tile:"#FCE6CE" },
+  { key:"golf_cards", name:"Golf",        tile:"#DBEFE0" },
+  { key:"minigolf",   name:"Mini Golf",   tile:"#DBEFE0" },
+  { key:"molkky",     name:"Mölkky",      tile:"#E7E2F7" },
+  { key:"qwirkle",    name:"Qwirkle",     tile:"#DCE9FB" },
+  { key:"custom",     name:"Custom",      tile:"#DCE9FB" }
+];
+var GBY = {}; GAMES.forEach(function(g){ GBY[g.key] = g; });
+function icon(key, dark){ return "assets/" + (dark ? "dark/" : "games/") + key + ".svg"; }
+function tileImg(key, dark){
+  var g = GBY[key];
+  return '<div class="tile" style="background:'+ (dark ? darkTile(key) : g.tile) +'"><img src="'+ icon(key, dark) +'" alt=""/></div>';
+}
+/* dark-mode tile tints (deep, muted) — matches the app's dark theme */
+var DARK_TILE = {
+  score:"#3a3320", timer:"#322a44", phase10:"#1f2f4a", yahtzee:"#322a44",
+  cribbage:"#3a3320", custom:"#1f2f4a", hearts:"#3a2230", spades:"#2a2e37",
+  ginrummy:"#2a2e37"
+};
+function darkTile(key){ return DARK_TILE[key] || "#2A2E37"; }
+/* which keys have a dedicated dark-variant svg */
+var HAS_DARK = { cribbage:1, custom:1, golf_cards:1, hearts:1, minigolf:1, score:1, spades:1, timer:1 };
+function darkIcon(key){ return HAS_DARK[key] ? icon(key, true) : icon(key, false); }
+
+/* Leader crown (recolorable via currentColor) */
+var CROWN = '<span class="crown"><svg viewBox="0 0 96 96" fill="none"><path d="M22 66 L22 38 L36 52 L48 31 L60 52 L74 38 L74 66 Z" fill="currentColor" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg></span>';
+/* A recent-game card. type: 'lead' (you're ahead, shows crown) | 'turn' (whose turn) | 'start' (not begun) */
+function recentCard(r, dark){
+  var tile = dark
+    ? '<div class="tile" style="background:'+darkTile(r.key)+'"><img src="'+darkIcon(r.key)+'" alt=""/></div>'
+    : '<div class="tile" style="background:'+GBY[r.key].tile+'"><img src="'+icon(r.key)+'" alt=""/></div>';
+  var status = (r.type==='start')
+    ? '<div class="status start">'+r.status+'</div>'
+    : '<div class="status live"><span class="dot"></span>'+(r.crown?CROWN:'')+'<span>'+r.status+'</span></div>';
+  return '<div class="r">'+tile+'<div class="nm">'+r.name+'</div>'+status+'<div class="sub">'+r.sub+'</div></div>';
+}
+
+/* ---- Games showcase ---- */
+(function(){
+  var html = "";
+  GAMES.forEach(function(g){
+    html += '<div class="game-chip"><div class="tile" style="background:'+ g.tile +'"><img src="'+ icon(g.key) +'" alt="'+ g.name +' scoring"/></div><span class="nm">'+ g.name +'</span></div>';
+  });
+  document.getElementById("gamesGrid").innerHTML = html;
+})();
+
+/* ---- Phone: home screen (light) ---- */
+function homeScreen(){
+  function gtile(key, bg){ return '<div class="tile" style="background:'+bg+'"><img src="'+icon(key)+'" alt=""/></div>'; }
+  var recents = [
+    { key:"cornhole", name:"Cornhole", type:"lead", crown:true, status:"Me · 3", sub:"Resume · just now" },
+    { key:"farkle", name:"Farkle", type:"turn", status:"Jack's turn", sub:"Resume · just now" },
+    { key:"qwirkle", name:"Qwirkle", type:"start", status:"Tap to start", sub:"just now" }
+  ];
+  var grid = ["custom","golf_cards","minigolf","molkky","spades","dominoes","dutchblitz","euchre","hearts","rummy","flip7","phase10","yahtzee","cribbage","ginrummy","score"];
+  var h = '';
+  h += '<div class="statusbar"><span>6:17</span><span class="dots"><i></i><i style="width:13px"></i><i class="bat"></i></span></div>';
+  h += '<div class="appbar"><span class="brand"><span class="wm">Tallero</span></span><span class="gear"><img src="assets/ui/gear.svg" alt="Settings"/></span></div>';
+  h += '<div class="q-cards">'
+     + '<div class="q-card">'+gtile("score","#FCE6CE")+'<span class="qt"><span class="lbl">Quick Score</span><span class="sub">Tap to score</span></span></div>'
+     + '<div class="q-card">'+gtile("timer","#E7E2F7")+'<span class="qt"><span class="lbl">Quick Timer</span><span class="sub">Countdown</span></span></div>'
+     + '</div>';
+  h += '<div class="app-section">Recent</div><div class="recent">';
+  recents.forEach(function(r){ h += recentCard(r, false); });
+  h += '</div>';
+  h += '<div class="app-section">Games</div><div class="gg">';
+  grid.forEach(function(k){
+    h += '<div class="g"><div class="tile" style="background:'+GBY[k].tile+'"><img src="'+icon(k)+'" alt=""/></div><div class="nm">'+GBY[k].name+'</div></div>';
+  });
+  h += '</div>';
+  h += '<div class="home-ind"></div>';
+  return h;
+}
+
+/* ---- Phone: dark screen ---- */
+function darkScreen(){
+  function gtileD(key){ return '<div class="tile" style="background:'+darkTile(key)+'"><img src="'+darkIcon(key)+'" alt=""/></div>'; }
+  var recents = [
+    { key:"hearts", name:"Hearts", type:"lead", crown:true, status:"Me · 18", sub:"Resume · 2h ago" },
+    { key:"cribbage", name:"Cribbage", type:"turn", status:"Sam's turn", sub:"Resume · 1d ago" },
+    { key:"spades", name:"Spades", type:"start", status:"Tap to start", sub:"just now" }
+  ];
+  var grid = ["custom","golf_cards","minigolf","score","phase10","qwirkle","dominoes","ginrummy","euchre","rummy","farkle","flip7","molkky","dutchblitz","yahtzee","cornhole"];
+  var h = '';
+  h += '<div class="statusbar"><span>9:41</span><span class="dots"><i></i><i style="width:13px"></i><i class="bat"></i></span></div>';
+  h += '<div class="appbar"><span class="brand"><span class="wm">Tallero</span></span><span class="gear"><img src="assets/ui/gear.svg" alt="Settings" style="filter:invert(1) brightness(.9)"/></span></div>';
+  h += '<div class="q-cards">'
+     + '<div class="q-card">'+gtileD("score")+'<span class="qt"><span class="lbl">Quick Score</span><span class="sub">Tap to score</span></span></div>'
+     + '<div class="q-card">'+gtileD("timer")+'<span class="qt"><span class="lbl">Quick Timer</span><span class="sub">Countdown</span></span></div>'
+     + '</div>';
+  h += '<div class="app-section">Recent</div><div class="recent">';
+  recents.forEach(function(r){ h += recentCard(r, true); });
+  h += '</div>';
+  h += '<div class="app-section">Games</div><div class="gg">';
+  grid.forEach(function(k){
+    h += '<div class="g"><div class="tile" style="background:'+darkTile(k)+'"><img src="'+darkIcon(k)+'" alt=""/></div><div class="nm" style="color:#888F9E">'+GBY[k].name+'</div></div>';
+  });
+  h += '</div>';
+  h += '<div class="home-ind"></div>';
+  return h;
+}
+
+document.getElementById("homeScreen").innerHTML = homeScreen();
+document.getElementById("darkScreen").innerHTML = darkScreen();
+document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
+
+<!-- ============================================================
+     APP STORE BADGE  —  launch switch
+     ------------------------------------------------------------
+     Until the app is live, the page shows the inert "Coming soon"
+     pills already in the markup (they work with JS off, too).
+
+     TO GO LIVE, do three things:
+       1. Download Apple's official "Download on the App Store"
+          badge from Apple's marketing guidelines / Marketing
+          Resources tool. (Do NOT recreate it — Apple requires
+          their exact artwork.) Save it over:
+              assets/appstore-badge.svg
+       2. Put your App Store product URL in APPSTORE.url below.
+       3. Set APPSTORE.live = true.
+     Every "Coming soon" pill + the footer link then become the
+     real, linked badge automatically. Nothing else to edit.
+     ============================================================ -->
+<script>
+var APPSTORE = {
+  live:   false,                                   // ← flip to true at launch
+  url:    "https://apps.apple.com/app/idXXXXXXXXXX", // ← your App Store product page
+  badge:  "assets/appstore-badge.svg",             // ← Apple's official badge asset
+  height: 48                                        // rendered badge height (px)
+};
+(function () {
+  if (!APPSTORE.live) return;            // keep the "Coming soon" placeholders
+
+  // Replace each placeholder pill with Apple's official badge, linked.
+  document.querySelectorAll(".appstore--soon").forEach(function (el) {
+    var a = document.createElement("a");
+    a.className = "appstore-badge";
+    a.href = APPSTORE.url;
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.setAttribute("aria-label", "Download Tallero on the App Store");
+    var img = document.createElement("img");
+    img.src = APPSTORE.badge;
+    img.alt = "Download on the App Store";
+    img.style.height = APPSTORE.height + "px";
+    img.style.width = "auto";
+    img.style.display = "block";
+    a.appendChild(img);
+    el.replaceWith(a);
+  });
+
+  // Turn the footer text link into a real link.
+  document.querySelectorAll(".js-appstore-link").forEach(function (a) {
+    a.href = APPSTORE.url;
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.removeAttribute("aria-disabled");
+    a.textContent = "Download on the App Store";
+  });
+})();
+</script>
+
+<!-- ============================================================
+     BETA / "NOTIFY ME" CAPTURE  —  placeholder until wired
+     ------------------------------------------------------------
+     PLACEHOLDER MODE (default): the form validates the email and
+     shows an honest "not live yet" note — it does NOT silently
+     pretend to subscribe anyone.
+
+     TO MAKE IT REAL, set one or both below:
+       • NOTIFY.endpoint  — a form POST URL from any provider
+         (Formspree, Buttondown, Mailchimp embedded form, etc.).
+         Once set, the form submits there normally (works w/o JS).
+       • NOTIFY.testflight — your public TestFlight invite link.
+         Once set, the "Join the TestFlight beta" line appears.
+     ============================================================ -->
+<script>
+var NOTIFY = {
+  endpoint:   "",   // ← paste your email-capture POST URL here
+  testflight: ""    // ← paste your public TestFlight invite link here
+};
+(function () {
+  var form = document.getElementById("notifyForm");
+  var input = document.getElementById("notifyEmail");
+  var msg = document.getElementById("notifyMsg");
+  if (!form) return;
+
+  // Reveal the TestFlight line only when a link is configured.
+  if (NOTIFY.testflight) {
+    var wrap = document.getElementById("tfWrap");
+    document.getElementById("tfLink").href = NOTIFY.testflight;
+    wrap.hidden = false;
+  }
+
+  // If a real endpoint is set, point the form at it (native POST, no-JS safe).
+  if (NOTIFY.endpoint) form.setAttribute("action", NOTIFY.endpoint);
+
+  var EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+  function show(t) { msg.textContent = t; }
+
+  form.addEventListener("submit", function (e) {
+    var email = (input.value || "").trim();
+    if (!EMAIL_RE.test(email)) { e.preventDefault(); show("Please enter a valid email address."); return; }
+    if (!NOTIFY.endpoint) {
+      // Placeholder mode — be honest, don't fake a subscription.
+      e.preventDefault();
+      show("Thanks! Email sign-up isn't switched on yet — check back at launch.");
+      form.reset();
+      return;
+    }
+    // Endpoint configured → let it submit normally.
+    show("Submitting…");
+  });
+})();
+</script>
+</body>
+</html>
