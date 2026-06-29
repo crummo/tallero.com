@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" fill="none">
-      <g stroke="#232B3E" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+  <g transform="translate(-8.123 -5.2) scale(1.16923)">
+    <g stroke="#232B3E" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
         <rect x="42" y="15" width="12" height="6.5" rx="2.5" fill="#fff"></rect>
         <line x1="48" y1="21.5" x2="48" y2="28"></line>
         <line x1="65" y1="24" x2="69" y2="20"></line>
@@ -8,4 +9,5 @@
         <line x1="48" y1="54" x2="59" y2="58"></line>
       </g>
       <circle cx="48" cy="54" r="2.8" fill="#232B3E"></circle>
-    </svg>
+  </g>
+</svg>

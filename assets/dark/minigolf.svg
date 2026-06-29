@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" fill="none">
+  <g transform="translate(-7.014 -9.172) scale(1.07345)">
     <g stroke="#232B3E" stroke-width="3" stroke-linejoin="round" fill="#fff">
       <path d="M37 72 L40 49 L58 49 L61 72 Z"></path><path d="M39 49 L59 49 L49 38 Z"></path>
     </g>
@@ -13,4 +14,5 @@
     <ellipse cx="74" cy="60" rx="5" ry="2.4" fill="#E7E9F0"></ellipse>
     <line x1="21" y1="51" x2="27" y2="78" stroke="#E7E9F0" stroke-width="3.3" stroke-linecap="round"></line>
     <rect x="20" y="76" width="15" height="6.5" rx="3.2" fill="#fff" stroke="#232B3E" stroke-width="2.5" transform="rotate(10 27 79)"></rect>
-  </svg>
+  </g>
+</svg>
