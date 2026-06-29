@@ -32,11 +32,14 @@
       </svg>
       <span class="wordmark">Tallero</span>
     </a>
-    <nav class="site-nav">
+    <nav class="site-nav" id="siteNav">
       <a href="index.html#features">Features</a>
       <a href="index.html#games">Games</a>
       <a href="support.html" style="color:var(--blue)">Support</a>
     </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
     <div class="site-header__cta">
       <a class="btn btn--ghost" href="index.html">Back to home</a>
     </div>
@@ -161,6 +164,15 @@
   </div>
 </footer>
 
-<script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+<script>
+document.getElementById("yr").textContent = new Date().getFullYear();
+(function () {
+  var t = document.getElementById("navToggle"), n = document.getElementById("siteNav");
+  if (!t || !n) return;
+  function set(o){ n.classList.toggle("open", o); t.setAttribute("aria-expanded", o ? "true" : "false"); t.setAttribute("aria-label", o ? "Close menu" : "Open menu"); }
+  t.addEventListener("click", function(){ set(!n.classList.contains("open")); });
+  n.addEventListener("click", function(e){ if (e.target.closest("a")) set(false); });
+})();
+</script>
 </body>
 </html>

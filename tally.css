@@ -163,8 +163,25 @@ h1, h2, h3, h4, p { margin: 0; }
 .site-header__cta { display: flex; align-items: center; gap: 16px; }
 .nav-toggle { display: none; }
 @media (max-width: 760px) {
-  .site-nav { display: none; }
-  .site-header__cta .btn { padding: 10px 16px; font-size: 14px; }
+  /* Mobile menu: logo + hamburger; nav becomes a dropdown panel */
+  .nav-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 42px; height: 42px; margin-right: -9px;
+    border: none; background: transparent; color: var(--ink); cursor: pointer;
+  }
+  .site-header__cta { display: none; }
+  .site-nav {
+    display: none;
+    position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: rgba(255,255,255,.98);
+    -webkit-backdrop-filter: saturate(180%) blur(14px); backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid var(--line); box-shadow: var(--shadow);
+    padding: 6px 0;
+  }
+  .site-nav.open { display: flex; }
+  .site-nav a { padding: 14px 24px; font-size: 16px; }
+  .site-nav a:active { background: var(--bg-soft); }
 }
 
 /* ============================================================
@@ -200,7 +217,7 @@ h1, h2, h3, h4, p { margin: 0; }
    Phone mockup (recreated app screens)
    ============================================================ */
 .phone {
-  width: 320px; border-radius: 44px; padding: 12px;
+  width: min(320px, 84vw); border-radius: 44px; padding: 12px;
   background: #0a0c0f; box-shadow: var(--shadow-lg);
 }
 .phone__screen {
