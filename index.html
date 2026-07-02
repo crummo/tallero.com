@@ -192,7 +192,9 @@
     <h2 class="display">Be first to play.</h2>
     <p>Tallero is in beta. Leave your email and we'll tell you the moment it lands on the App Store.</p>
 
-    <form class="notify" id="notifyForm" action="#" method="post" novalidate>
+    <form class="notify" id="notifyForm" name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="waitlist" />
+      <p hidden aria-hidden="true"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
       <input class="notify__input" id="notifyEmail" type="email" name="email" required
              autocomplete="email" placeholder="you@example.com" aria-label="Email address" />
       <button class="notify__btn" type="submit">Notify me</button>
@@ -437,23 +439,18 @@ var APPSTORE = {
 </script>
 
 <!-- ============================================================
-     BETA / "NOTIFY ME" CAPTURE  —  placeholder until wired
+     WAITLIST  —  Netlify Forms
      ------------------------------------------------------------
-     PLACEHOLDER MODE (default): the form validates the email and
-     shows an honest "not live yet" note — it does NOT silently
-     pretend to subscribe anyone.
-
-     TO MAKE IT REAL, set one or both below:
-       • NOTIFY.endpoint  — a form POST URL from any provider
-         (Formspree, Buttondown, Mailchimp embedded form, etc.).
-         Once set, the form submits there normally (works w/o JS).
-       • NOTIFY.testflight — your public TestFlight invite link.
-         Once set, the "Join the TestFlight beta" line appears.
+     Submissions are captured by Netlify automatically:
+       Netlify → your site → Forms → "waitlist".
+     To get an email on every new signup, add a notification in
+     Netlify → Forms → Settings & notifications.
+     Optional: set NOTIFY.testflight to a public TestFlight invite
+     link to reveal the "Join the TestFlight beta" line.
      ============================================================ -->
 <script>
 var NOTIFY = {
-  endpoint:   "",   // ← paste your email-capture POST URL here
-  testflight: ""    // ← paste your public TestFlight invite link here
+  testflight: ""    // ← optional: paste your public TestFlight invite link
 };
 (function () {
   var form = document.getElementById("notifyForm");
@@ -461,31 +458,30 @@ var NOTIFY = {
   var msg = document.getElementById("notifyMsg");
   if (!form) return;
 
-  // Reveal the TestFlight line only when a link is configured.
   if (NOTIFY.testflight) {
-    var wrap = document.getElementById("tfWrap");
     document.getElementById("tfLink").href = NOTIFY.testflight;
-    wrap.hidden = false;
+    document.getElementById("tfWrap").hidden = false;
   }
-
-  // If a real endpoint is set, point the form at it (native POST, no-JS safe).
-  if (NOTIFY.endpoint) form.setAttribute("action", NOTIFY.endpoint);
 
   var EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
   function show(t) { msg.textContent = t; }
 
   form.addEventListener("submit", function (e) {
+    e.preventDefault();
     var email = (input.value || "").trim();
-    if (!EMAIL_RE.test(email)) { e.preventDefault(); show("Please enter a valid email address."); return; }
-    if (!NOTIFY.endpoint) {
-      // Placeholder mode — be honest, don't fake a subscription.
-      e.preventDefault();
-      show("Thanks! Email sign-up isn't switched on yet — check back at launch.");
-      form.reset();
-      return;
-    }
-    // Endpoint configured → let it submit normally.
-    show("Submitting…");
+    if (!EMAIL_RE.test(email)) { show("Please enter a valid email address."); return; }
+    show("Adding you…");
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(new FormData(form)).toString()
+    })
+      .then(function (r) {
+        if (!r.ok) throw new Error();
+        show("You’re on the list — we’ll email you at launch.");
+        form.reset();
+      })
+      .catch(function () { show("Hmm, that didn’t send. Please try again in a moment."); });
   });
 })();
 </script>
