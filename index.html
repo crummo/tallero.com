@@ -71,6 +71,7 @@
       <h1 class="display hero__title">Settle the<br/><span class="gold">score.</span></h1>
       <p class="hero__sub">Tallero is the friendly score-keeper for card games and game nights. Pick a game, add your players, and start counting — no setup, no fuss.</p>
       <div class="hero__actions">
+        <a class="btn btn--gold btn--beta js-beta-cta" id="betaCta" href="#" target="_blank" rel="noopener" hidden>Join the beta</a>
         <a class="appstore appstore--soon" aria-label="Coming soon to the App Store">
           <svg class="glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="1.7"/>
@@ -203,6 +204,7 @@
     <p class="notify__alt" id="tfWrap" hidden>Already testing? <a id="tfLink" href="#" target="_blank" rel="noopener">Join the TestFlight beta</a></p>
 
     <div class="actions" style="margin-top:30px">
+      <a class="btn btn--gold js-beta-cta" href="#" target="_blank" rel="noopener" hidden>Join the beta</a>
       <a class="appstore appstore--soon" aria-label="Coming soon to the App Store">
         <svg class="glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="1.7"/>
@@ -261,26 +263,26 @@
 /* The 20 built-in games. Tile color = the brand-tinted hue per game.
    To add/remove a game, edit this one array. */
 var GAMES = [
+  { key:"euchre",     name:"Euchre",      tile:"#DBEFE0" },
   { key:"score",      name:"Quick Score", tile:"#FCE6CE" },
   { key:"timer",      name:"Quick Timer", tile:"#E7E2F7" },
   { key:"phase10",    name:"Phase 10",    tile:"#DCE9FB" },
-  { key:"yahtzee",    name:"Yahtzee",     tile:"#E7E2F7" },
-  { key:"cribbage",   name:"Cribbage",    tile:"#FBEAC6" },
-  { key:"euchre",     name:"Euchre",      tile:"#DBEFE0" },
-  { key:"hearts",     name:"Hearts",      tile:"#FAD8DC" },
-  { key:"rummy",      name:"Rummy",       tile:"#FBEAC6" },
-  { key:"ginrummy",   name:"Gin Rummy",   tile:"#E9EAEF" },
   { key:"spades",     name:"Spades",      tile:"#E9EAEF" },
-  { key:"cornhole",   name:"Cornhole",    tile:"#DBEFE0" },
-  { key:"dominoes",   name:"Dominoes",    tile:"#E9EAEF" },
-  { key:"dutchblitz", name:"Dutch Blitz", tile:"#FCE6CE" },
-  { key:"farkle",     name:"Farkle",      tile:"#FAD8DC" },
-  { key:"flip7",      name:"Flip 7",      tile:"#FCE6CE" },
+  { key:"yahtzee",    name:"Yahtzee",     tile:"#E7E2F7" },
+  { key:"qwirkle",    name:"Qwirkle",     tile:"#DCE9FB" },
+  { key:"ginrummy",   name:"Gin Rummy",   tile:"#E9EAEF" },
   { key:"golf_cards", name:"Golf",        tile:"#DBEFE0" },
+  { key:"dutchblitz", name:"Dutch Blitz", tile:"#FCE6CE" },
+  { key:"dominoes",   name:"Dominoes",    tile:"#E9EAEF" },
+  { key:"cornhole",   name:"Cornhole",    tile:"#DBEFE0" },
+  { key:"flip7",      name:"Flip 7",      tile:"#FCE6CE" },
+  { key:"cribbage",   name:"Cribbage",    tile:"#FBEAC6" },
+  { key:"hearts",     name:"Hearts",      tile:"#FAD8DC" },
   { key:"minigolf",   name:"Mini Golf",   tile:"#DBEFE0" },
   { key:"molkky",     name:"Mölkky",      tile:"#E7E2F7" },
-  { key:"qwirkle",    name:"Qwirkle",     tile:"#DCE9FB" },
-  { key:"custom",     name:"Custom",      tile:"#DCE9FB" }
+  { key:"custom",     name:"Custom",      tile:"#DCE9FB" },
+  { key:"farkle",     name:"Farkle",      tile:"#FAD8DC" },
+  { key:"rummy",      name:"Rummy",       tile:"#FBEAC6" }
 ];
 var GBY = {}; GAMES.forEach(function(g){ GBY[g.key] = g; });
 function icon(key, dark){ return "assets/" + (dark ? "dark/" : "games/") + key + ".svg"; }
@@ -445,8 +447,10 @@ var APPSTORE = {
        Netlify → your site → Forms → "waitlist".
      To get an email on every new signup, add a notification in
      Netlify → Forms → Settings & notifications.
-     Optional: set NOTIFY.testflight to a public TestFlight invite
-     link to reveal the "Join the TestFlight beta" line.
+     BETA CTA: the "Join the beta" buttons (hero + bottom CTA) and
+     the "Already testing?" link are HIDDEN until you paste a public
+     TestFlight invite link into NOTIFY.testflight below. Set it and
+     all three go live at once; leave it empty and none show.
      ============================================================ -->
 <script>
 var NOTIFY = {
@@ -459,8 +463,16 @@ var NOTIFY = {
   if (!form) return;
 
   if (NOTIFY.testflight) {
+    // Beta is live: gold button leads, App Store pill steps back.
+    document.body.classList.add("beta-live");
+    // Reveal the small "Already testing?" link under the form…
     document.getElementById("tfLink").href = NOTIFY.testflight;
     document.getElementById("tfWrap").hidden = false;
+    // …and the prominent "Join the beta" buttons (hero + CTA band).
+    document.querySelectorAll(".js-beta-cta").forEach(function (a) {
+      a.href = NOTIFY.testflight;
+      a.hidden = false;
+    });
   }
 
   var EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;

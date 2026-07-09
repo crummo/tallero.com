@@ -127,6 +127,13 @@ h1, h2, h3, h4, p { margin: 0; }
 .btn--ghost:hover { box-shadow: inset 0 0 0 1.5px var(--blue); }
 .btn--onblue { background: #fff; color: var(--blue); }
 .btn--onblue:hover { background: #F2F7FC; }
+.btn--gold { background: var(--gold); color: #3a2c06; box-shadow: 0 6px 18px -8px rgba(217,169,52,.7); }
+.btn--gold:hover { filter: brightness(1.05); }
+.btn--beta { padding: 15px 32px; font-size: 17px; }
+/* When the beta is live, the gold button leads and the App Store pill steps back */
+body.beta-live .hero__actions .appstore--soon {
+  background: transparent; box-shadow: inset 0 0 0 1px rgba(255,255,255,.28);
+}
 
 /* App Store badge (original, non-Apple artwork — swap for Apple's official badge at launch) */
 .appstore {
