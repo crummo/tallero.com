@@ -1,8 +1,7 @@
 # Tallero — marketing site
 
 The public website for **Tallero**, the score-keeper for game night. Plain
-static HTML/CSS/JS — no build step. Lives at **https://gettallero.com**
-(currently deployed to https://tallero.netlify.app).
+static HTML/CSS/JS — no build step. Lives at **https://gettallero.com** (hosted on Netlify).
 
 ## Structure
 
