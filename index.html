@@ -86,7 +86,7 @@
 
     <div class="hero__phone">
       <div class="phone phone--float">
-        <div class="phone__screen" id="homeScreen"></div>
+        <div class="phone__screen"><img src="assets/home-light.png" alt="Tallero home screen: Quick Score and Timer, recent games, and the game grid" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
       </div>
     </div>
   </div>
@@ -164,7 +164,7 @@
       </div>
       <div class="split__media" style="justify-self:center">
         <div class="phone phone--float">
-          <div class="phone__screen is-dark" id="darkScreen"></div>
+          <div class="phone__screen"><img src="assets/home-dark.png" alt="Tallero home screen in dark mode" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
         </div>
       </div>
     </div>
@@ -379,8 +379,6 @@ function darkScreen(){
   return h;
 }
 
-document.getElementById("homeScreen").innerHTML = homeScreen();
-document.getElementById("darkScreen").innerHTML = darkScreen();
 document.getElementById("yr").textContent = new Date().getFullYear();
 </script>
 
