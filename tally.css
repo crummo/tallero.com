@@ -229,7 +229,7 @@ body.beta-live .hero__actions .appstore--soon {
 }
 .phone__screen {
   border-radius: 33px; overflow: hidden; background: var(--app-bg, #EEF0F4);
-  position: relative; aspect-ratio: 9 / 19.5;
+  position: relative; aspect-ratio: 1320 / 2868; /* exact iPhone Pro Max capture ratio — no crop on real screenshots */
 }
 .phone--float { box-shadow: 0 40px 90px -30px rgba(4,24,50,.6); }
 /* iOS home indicator */
