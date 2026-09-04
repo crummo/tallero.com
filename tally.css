@@ -504,32 +504,3 @@ body.beta-live .hero__actions .appstore--soon {
   .split--blue { padding: 32px 22px; }
   .price-card { padding: 32px 22px; }
 }
-
-
-/* ============================================================
-   Lifetime stats showcase
-   ============================================================ */
-.stats-section { background: var(--bg-warm); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.stats-section .eyebrow { color: var(--blue); }
-.stats-section h2 { font-family: var(--display); font-weight: 800; font-size: clamp(30px,3.6vw,42px); letter-spacing: -.03em; line-height: 1.05; margin-bottom: 16px; }
-.stats-section p { color: var(--txt-2); font-size: 17px; line-height: 1.6; }
-.stats-section .split__list { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 14px; }
-.stats-section .split__list li { display: grid; grid-template-columns: 24px 1fr; gap: 12px; align-items: start; font-size: 16px; color: var(--txt); }
-.stats-section .split__list .ck { width: 22px; height: 22px; border-radius: 50%; background: rgba(15,95,165,.1); display: grid; place-items: center; margin-top: 2px; }
-.stats-section .split__list .ck svg { width: 12px; height: 12px; }
-.stats-section .split__media { justify-self: center; }
-/* Interim in-frame leaderboard mock — swap for a real Pro Max stats screenshot */
-.statmock { display: flex; flex-direction: column; height: 100%; background: #EEF0F4; }
-.statmock .title { font-family: var(--display); font-weight: 800; font-size: 22px; color: var(--ink); padding: 14px 16px 8px; }
-.statmock .seg { display: flex; gap: 5px; margin: 0 14px 10px; background: #e7e4d8; border-radius: 10px; padding: 3px; }
-.statmock .seg span { flex: 1; text-align: center; font-size: 11.5px; font-weight: 700; padding: 6px 0; border-radius: 8px; color: #5a6170; }
-.statmock .seg .on { background: #fff; color: #1c1c1e; box-shadow: var(--shadow-sm); }
-.statmock .srow { display: grid; grid-template-columns: 16px 30px 1fr auto; align-items: center; gap: 9px; padding: 9px 16px; }
-.statmock .srow + .srow { border-top: 1px solid var(--line-soft); }
-.statmock .rank { font-size: 12px; font-weight: 800; color: #a2a7b0; text-align: center; }
-.statmock .av { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 13px; }
-.statmock .who .n { font-size: 13.5px; font-weight: 700; color: #1c1c1e; line-height: 1.2; }
-.statmock .who .s { font-size: 10.5px; color: #8e8e93; font-weight: 600; }
-.statmock .wn { text-align: right; }
-.statmock .wn b { display: block; font-size: 15px; font-weight: 800; color: #1c1c1e; }
-.statmock .wn i { font-size: 10px; color: #8e8e93; font-weight: 600; font-style: normal; }
