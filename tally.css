@@ -70,6 +70,11 @@ body {
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 h1, h2, h3, h4, p { margin: 0; }
+/* Never strand a lone word on the last line. `balance` evens out short
+   headings; `pretty` pulls a word down from the line above when a
+   paragraph would otherwise end in a widow. */
+h1, h2, h3, h4 { text-wrap: balance; }
+p, li, blockquote, figcaption { text-wrap: pretty; }
 ::selection { background: rgba(15,95,165,.18); }
 
 /* ---- Type helpers ---- */
@@ -113,6 +118,15 @@ h1, h2, h3, h4, p { margin: 0; }
 /* ============================================================
    Buttons
    ============================================================ */
+/* The `hidden` ATTRIBUTE has to beat every display rule below it. The two
+   "Join the beta" buttons are marked hidden until a TestFlight link is pasted
+   into NOTIFY.testflight (see index.html), and they rendered anyway — the
+   browser's default `[hidden] { display: none }` is a plain attribute selector
+   and loses to `.btn { display: inline-flex }`. So the launch switch worked for
+   the plain "Already testing?" link and leaked for the two buttons, putting a
+   dead href="#" call to action at the top of the live site. */
+[hidden] { display: none !important; }
+
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 9px;
   font-family: var(--sans); font-weight: 600; font-size: 16px;
@@ -224,7 +238,10 @@ body.beta-live .hero__actions .appstore--soon {
    Phone mockup (recreated app screens)
    ============================================================ */
 .phone {
-  width: min(320px, 84vw); border-radius: 44px; padding: 12px;
+  /* 84vw is viewport-relative, so inside a padded card (the blue split) it can
+     exceed the column and get clipped by its overflow:hidden — which reads as
+     an off-centre phone. max-width keeps it inside whatever contains it. */
+  width: min(320px, 84vw); max-width: 100%; border-radius: 44px; padding: 12px;
   background: #0a0c0f; box-shadow: var(--shadow-lg);
 }
 .phone__screen {
@@ -323,7 +340,10 @@ body.beta-live .hero__actions .appstore--soon {
 }
 .fcard__icon img { width: 56%; height: 56%; }
 .fcard h3 { font-family: var(--display); font-weight: 700; font-size: 21px; letter-spacing: -.02em; margin-bottom: 8px; }
-.fcard p { font-size: 15.5px; line-height: 1.55; color: var(--txt-2); }
+/* balance over pretty for these short blurbs: pretty only rescues a one-word
+   last line, and these were still ending on 15-30% stubs. balance evens the
+   whole block (Chrome applies it up to ~6 lines, which these never exceed). */
+.fcard p { font-size: 15.5px; line-height: 1.55; color: var(--txt-2); text-wrap: balance; }
 
 /* ============================================================
    Section heading block
@@ -331,7 +351,10 @@ body.beta-live .hero__actions .appstore--soon {
 .sec-head { max-width: 640px; margin-bottom: 48px; }
 .sec-head .eyebrow { margin-bottom: 14px; display: block; }
 .sec-head h2 { font-family: var(--display); font-weight: 800; font-size: clamp(32px, 4.4vw, 48px); letter-spacing: -.035em; line-height: 1.02; margin-bottom: 16px; }
-.sec-head p { font-size: 18px; color: var(--txt-2); text-wrap: pretty; }
+/* balance, not pretty: these sub-heads are short, centred blocks, so evening
+   the lines out beats only protecting the last one. A hard <br/> here used to
+   strand stub lines ("each scored by its own") at mid widths. */
+.sec-head p { font-size: 18px; color: var(--txt-2); text-wrap: balance; }
 .sec-head--center { margin-left: auto; margin-right: auto; text-align: center; }
 
 /* ============================================================
@@ -348,6 +371,11 @@ body.beta-live .hero__actions .appstore--soon {
 }
 .game-chip:hover .tile { transform: translateY(-3px) rotate(-2deg); }
 .game-chip .tile img { width: 60%; height: 60%; }
+/* Emoji stand-in for a game with no SVG glyph — sized to sit on roughly the
+   same optical footprint as the 60% icons beside it (40px against their 43px),
+   so a row reads evenly whichever kind of face it has. Unused by the current
+   lineup; paired with the renderer's emoji branch in index.html. */
+.game-chip .tile__emoji { font-size: 40px; line-height: 1; }
 .game-chip .nm { font-size: 13px; font-weight: 600; color: var(--txt-2); text-align: center; }
 @media (max-width: 860px) { .games-grid { grid-template-columns: repeat(4, 1fr); } }
 @media (max-width: 560px) { .games-grid { grid-template-columns: repeat(3, 1fr); } .game-chip .tile { width: 72px; height: 72px; } }
@@ -362,7 +390,13 @@ body.beta-live .hero__actions .appstore--soon {
 }
 .split--blue .eyebrow { color: var(--gold); }
 .split--blue h2 { font-family: var(--display); font-weight: 800; font-size: clamp(30px,3.6vw,42px); letter-spacing: -.03em; line-height: 1.05; margin-bottom: 16px; }
-.split--blue p { color: #CFE1F3; font-size: 17px; line-height: 1.6; }
+.split--blue p { color: #CFE1F3; font-size: 17px; line-height: 1.6; text-wrap: balance; }
+/* The media column stretches, and the phone centres itself inside it. Using
+   justify-self:center on the column instead would shrink-wrap it to the
+   phone, making the phone's max-width:100% resolve against itself. */
+.split > * { min-width: 0; }  /* a 1fr track floors at min-content, so the fixed-width phone would widen its own column past the card's padding */
+.split__media { justify-self: stretch; }
+.split__media .phone { margin-inline: auto; }
 .split__list { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 14px; }
 .split__list li { display: grid; grid-template-columns: 24px 1fr; gap: 12px; align-items: start; font-size: 16px; color: #E8F1FA; }
 .split__list .ck { width: 22px; height: 22px; border-radius: 50%; background: rgba(255,255,255,.16); display: grid; place-items: center; margin-top: 2px; }

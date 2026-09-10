@@ -4,10 +4,10 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Tallero — Settle the Score. The score-keeper for game night.</title>
-<meta name="description" content="Tallero is the friendly score-keeper for card games and game nights. 20+ games built in, custom scoring, dark mode, no account needed — it all stays on your iPhone."/>
+<meta name="description" content="Tallero is the score-keeper that knows the games — Hearts, Cribbage, Yahtzee, Farkle, Phase 10 and more, each with its own rules and scoring. Records, awards, dark mode, no account, all on your device."/>
 <link rel="icon" href="assets/icon-app.svg"/>
 <meta property="og:title" content="Tallero — Settle the Score."/>
-<meta property="og:description" content="The friendly score-keeper for card games and game nights. 20+ games built in. No account. Free."/>
+<meta property="og:description" content="The score-keeper that knows the games. Hearts, Cribbage, Yahtzee, Farkle, Phase 10 and more, each with its own rules and scoring. Records and awards that remember every night. No account."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://gettallero.com"/>
 <meta property="og:image" content="https://gettallero.com/assets/og-image.png"/>
@@ -15,7 +15,7 @@
 <meta property="og:image:height" content="630"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Tallero — Settle the Score."/>
-<meta name="twitter:description" content="The friendly score-keeper for card games and game nights. 20+ games built in. No account."/>
+<meta name="twitter:description" content="The score-keeper that knows the games. Hearts, Cribbage, Yahtzee, Farkle, Phase 10 and more, each with its own rules and scoring. No account."/>
 <meta name="twitter:image" content="https://gettallero.com/assets/og-image.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -97,19 +97,24 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Why Tallero</span>
-      <h2>Less keeping score.<br/>More playing.</h2>
-      <p>The pen-and-paper scorepad, rebuilt for the table. Fast to start, impossible to lose, and it does the math for you.</p>
+      <h2>It knows the games.</h2>
+      <p>Not a blank grid with a calculator attached. Tallero knows a Hearts hand adds to 26, what a Farkle bust is, and that Gin scores two different ways — so you tap what happened, not what it's worth.</p>
     </div>
     <div class="feature-grid">
       <div class="fcard">
         <div class="fcard__icon" style="background:#DCE9FB"><img src="assets/games/score.svg" alt=""/></div>
-        <h3>20+ games built in</h3>
-        <p>Hearts, Cribbage, Yahtzee, Euchre, Rummy, Phase 10 and more — each with the right scoring rules baked in.</p>
+        <h3>Every game, properly</h3>
+        <p>Hearts checks the hand adds up and spots a shot moon. Phase 10 tracks phases, not just points. Farkle knows a bust. Each game brings its own rules, not a generic tally.</p>
       </div>
       <div class="fcard">
         <div class="fcard__icon" style="background:#DBEFE0"><img src="assets/games/custom.svg" alt=""/></div>
         <h3>Score anything</h3>
         <p>Custom Score for any game on Earth. Set targets, rounds, and high- or low-wins — Tallero handles the totals.</p>
+      </div>
+      <div class="fcard">
+        <div class="fcard__icon" style="background:#E7E2F7"><img src="assets/games/custom.svg" alt=""/></div>
+        <h3>The rules, in your pocket</h3>
+        <p>Every game ships with its own rules sheet — how to play, how it scores, and the variants your table argues about. No phone-hunting&nbsp;mid-hand.</p>
       </div>
       <div class="fcard">
         <div class="fcard__icon" style="background:#E7E2F7"><img src="assets/games/timer.svg" alt=""/></div>
@@ -122,14 +127,19 @@
         <p>Save your regular players with their own colors. Drop them into any game in a tap — no retyping names.</p>
       </div>
       <div class="fcard">
+        <div class="fcard__icon" style="background:#FBEAC6"><img src="assets/ui/trophy.svg" alt=""/></div>
+        <h3>An end to every night</h3>
+        <p>The final screen isn't just a total. Awards for the run nobody saw coming, the comeback, the collapse — and a line for every player at the table, not only the winner.</p>
+      </div>
+      <div class="fcard">
         <div class="fcard__icon" style="background:#FBEAC6"><img src="assets/ui/gear.svg" alt=""/></div>
         <h3>Light &amp; dark mode</h3>
         <p>A clean, readable board in any lighting — bright kitchen table or dim back porch. It follows your phone, or pick one.</p>
       </div>
       <div class="fcard">
         <div class="fcard__icon" style="background:#E9EAEF"><img src="assets/ui/trophy.svg" alt=""/></div>
-        <h3>Lifetime stats</h3>
-        <p>Tallero remembers every game night — a running leaderboard of wins, win rates, personal records, and who your archrival is. All on your device.</p>
+        <h3>Records that stick around</h3>
+        <p>Every night is remembered: leaderboards, win rates, house records, and who your archrival is. Break the best-ever round and Tallero says so — and tells you whose record you just took.</p>
       </div>
     </div>
   </div>
@@ -140,8 +150,8 @@
   <div class="wrap">
     <div class="sec-head sec-head--center">
       <span class="eyebrow">The lineup</span>
-      <h2>Twenty games, one scorepad.</h2>
-      <p>From the classics to game-night staples —<br/>and a Custom mode for everything else.</p>
+      <h2>Seventeen games,<br/>one app.</h2>
+      <p>The classics and the game-night staples, each scored by its own rules — plus Custom Score, Quick Score and a Timer.</p>
     </div>
     <div class="games-grid" id="gamesGrid"></div>
   </div>
@@ -162,9 +172,9 @@
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Easy on the eyes in full dark mode</span></li>
         </ul>
       </div>
-      <div class="split__media" style="justify-self:center">
+      <div class="split__media">
         <div class="phone phone--float">
-          <div class="phone__screen"><img src="assets/home-dark.png" alt="Tallero home screen in dark mode" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div class="phone__screen"><img src="assets/board-dark.png" alt="A Flip 7 game in progress in dark mode, with the leader crowned and the scores still climbing" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
         </div>
       </div>
     </div>
@@ -318,7 +328,13 @@ function recentCard(r, dark){
 (function(){
   var html = "";
   GAMES.forEach(function(g){
-    html += '<div class="game-chip"><div class="tile" style="background:'+ g.tile +'"><img src="'+ icon(g.key) +'" alt="'+ g.name +' scoring"/></div><span class="nm">'+ g.name +'</span></div>';
+    // A game may carry an `emoji` instead of an SVG glyph, which is the same
+    // fallback the app itself uses. Nothing in the lineup needs it today; it
+    // stays because the alternative is a broken image if one ever does.
+    var face = g.emoji
+      ? '<span class="tile__emoji" role="img" aria-label="'+ g.name +'">'+ g.emoji +'</span>'
+      : '<img src="'+ icon(g.key) +'" alt="'+ g.name +' scoring"/>';
+    html += '<div class="game-chip"><div class="tile" style="background:'+ g.tile +'">'+ face +'</div><span class="nm">'+ g.name +'</span></div>';
   });
   document.getElementById("gamesGrid").innerHTML = html;
 })();
