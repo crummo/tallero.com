@@ -7,3 +7,6 @@
 # Dependencies / build (none today, but just in case)
 node_modules/
 dist/
+
+# Deploy artifacts from the Netlify CLI
+*.zip

@@ -1,7 +1,7 @@
 # Tallero — marketing site
 
 The public website for **Tallero**, the score-keeper for game night. Plain
-static HTML/CSS/JS — no build step. Lives at **https://gettallero.com** (hosted on Netlify).
+static HTML/CSS/JS — no build step. Lives at **https://gettallero.com**, hosted on Cloudflare Pages.
 
 ## Structure
 
@@ -29,9 +29,7 @@ Both default to a safe "coming soon / not wired" state. Flip them at launch:
 
 ## Deploy
 
-Static site, deploys to Netlify (site id stored locally in `.netlify/state.json`,
-which is gitignored). With git-based continuous deployment connected in the
-Netlify dashboard, every push to this repo deploys automatically.
+Static site with no build step. Connected to Cloudflare Pages (framework preset: none, build command: empty, output directory: `/`), so every push to `main` deploys automatically. `_headers` sets caching and basic security headers.
 
 ## Brand
 
