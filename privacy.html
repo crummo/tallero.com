@@ -73,14 +73,14 @@
     <div class="prose">
       <!-- PRIVACY:BEGIN — generated from docs/PRIVACY_POLICY.md by app/scripts/build-privacy-page.mjs. Do not edit by hand. -->
       <p><strong>Tallero</strong> (the "App") is made by Slow Dust Software ("we," "us"). This policy explains what information the App handles and how.</p>
-      <p class="updated"><strong>Effective date:</strong> September 16, 2026</p>
+      <p class="updated"><strong>Effective date:</strong> September 18, 2026</p>
       <p class="updated"><strong>Contact:</strong> support@gettallero.com</p>
       <h2>The short version</h2>
       <p>Tallero is built to be private by default:</p>
       <ul>
         <li><strong>Your game data stays on your device.</strong> Players, scores, rosters, and settings are stored locally — we don't have a server that collects them, and there's no account to create.</li>
         <li><strong>No ads. No selling your data. Ever.</strong></li>
-        <li>The only things that leave your device are <strong>anonymous usage statistics</strong> (which you can turn off) and — if you make a purchase — the information needed to deliver what you bought.</li>
+        <li>The only things that leave your device are <strong>usage statistics that carry no names</strong> (which you can turn off) and — if you make a purchase — the information needed to deliver what you bought.</li>
         <li><strong>Board photos never leave your device.</strong> The camera is used only to count the dots on a finished Tacta board, on your phone, and the photo is discarded straight afterwards.</li>
         <li>Purchases are handled by <strong>Apple</strong>; we never see your payment details.</li>
       </ul>
@@ -93,8 +93,10 @@
       <p><strong>The photo never leaves your device.</strong> It is decoded into pixels in the App, the dots are counted, and the image is discarded. It is not uploaded, not saved to your photo library, not attached to analytics or diagnostics, and never seen by us or by anyone else. There is no server involved at any point — the counting happens entirely on your phone.</p>
       <p>You can decline camera access and keep using Tacta normally; the scanner is an optional shortcut, and every score can be entered by tapping the number pad.</p>
       <h2>Information that does leave your device</h2>
-      <h3>Anonymous usage analytics</h3>
-      <p>To understand which games and features get used, the App may send <strong>anonymous, aggregated</strong> usage events (for example, "a game was opened" or "a game finished," along with the game type, the App version, and which build it came from). These events contain <strong>no personal information</strong>, and we do not use advertising identifiers or cross-app tracking.</p>
+      <h3>Usage analytics</h3>
+      <p>To understand which games and features get used, the App sends usage events — for example that a game was opened or finished, which game it was, and the App version and build it came from.</p>
+      <p>For a finished game, an event also records how many players took part, whether it ended in a tie, how many rounds it ran, roughly how long it took in minutes, and the final scores. <strong>The scores are detached from the players and sorted</strong>, so what is sent is a list of numbers, not a result belonging to anyone. Events also record which in-app awards and personal records were triggered, which screens of the statistics view were opened, and — if you use the card scanner — technical measurements of how well it read the cards.</p>
+      <p><strong>No names are sent, and no personal information.</strong> Player names never leave your device, and a name you type for a custom game is replaced with the word "custom" before anything is sent. We do not use advertising identifiers and we do not track you across apps.</p>
       <p>You can turn this off at any time in the App's settings; when off, no usage events are sent.</p>
       <h3>Crash and error diagnostics — none</h3>
       <p><strong>The App sends no crash or error reports.</strong> When something goes wrong it recovers on its own screen and offers you a way to email us about it — nothing is transmitted unless you choose to write.</p>
@@ -115,7 +117,7 @@
       <ul>
         <li><strong>Apple</strong> — App Store distribution and in-app purchases. See Apple's Privacy Policy.</li>
         <li><strong>RevenueCat</strong> — purchase and entitlement management (which items you own, and restoring them). Receives your purchase identifier and purchase/entitlement records; does not receive payment details. See their privacy policy.</li>
-        <li><strong>PostHog</strong> — privacy-focused, anonymous usage analytics, hosted in the <strong>European Union</strong>. Covered by the analytics opt-out in the App's settings. See their privacy policy.</li>
+        <li><strong>PostHog</strong> — privacy-focused usage analytics, hosted in the <strong>European Union</strong>. Covered by the analytics opt-out in the App's settings. See their privacy policy.</li>
       </ul>
       <p>We do not sell, rent, or trade your information to anyone, and we do not allow these providers to use your information for their own purposes.</p>
       <h2>How we use information</h2>
@@ -123,7 +125,7 @@
       <h2>Data retention and deletion</h2>
       <ul>
         <li><strong>On-device data</strong> persists until you delete it or uninstall the App. You're in control.</li>
-        <li><strong>Anonymous analytics</strong> are retained only as long as needed to analyze usage, then aged out. The same would apply to diagnostics if they are ever added.</li>
+        <li><strong>Usage analytics</strong> are retained only as long as needed to analyze usage, then aged out.</li>
         <li><strong>Purchase records</strong> (and the identifier they're keyed to) are retained while needed to keep your purchases restorable. You can ask us to delete them — see below — though doing so means purchases can no longer be restored to you.</li>
       </ul>
       <h2>Children's privacy</h2>
