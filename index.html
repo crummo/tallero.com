@@ -81,7 +81,7 @@
         </a>
         <a class="btn btn--onblue" href="#features">See what's inside</a>
       </div>
-      <p class="hero__note">Free in beta · No account · Everything stays on your device.</p>
+      <p class="hero__note">Free · No account · Everything stays on your device.</p>
     </div>
 
     <div class="hero__phone">
@@ -186,10 +186,23 @@
   <div class="wrap">
     <div class="price-card">
       <span class="eyebrow" style="display:block;margin-bottom:14px">Pricing</span>
-      <div class="tag"><span class="free">Free</span> in beta</div>
-      <p>Tallero is completely free while we're in beta — every game included, no ads, nothing to buy. We'll share more about pricing closer to launch.</p>
+      <!-- "nothing to buy" was FALSE from the moment 1.0 shipped: there is a
+           tip jar in Settings, and the App Review note for build 202 points a
+           reviewer straight at it. It unlocks nothing, which is the part worth
+           saying — a visitor who sees "no purchases" and then finds one has
+           caught the site lying about money, which is the worst subject to be
+           caught lying about.
+
+           No forecast about future pricing either. The old line promised to
+           "share more closer to launch"; launch has happened, and the free
+           period now floats on PAID_CUTOVER_MS rather than a date anyone can
+           announce. The App Store description makes no pricing claim for the
+           same reason — saying nothing is what keeps a later change an
+           addition rather than a contradiction. -->
+      <div class="tag"><span class="free">Free</span> to play</div>
+      <p>Tallero is free — every game included. There's a tip jar in Settings if you'd like to support it, and it unlocks nothing: everything in the app is already yours.</p>
       <div class="price-pills">
-        <span class="pill"><span class="dot" style="background:#2BAA6B"></span>Free in beta</span>
+        <span class="pill"><span class="dot" style="background:#2BAA6B"></span>Free</span>
         <span class="pill"><span class="dot" style="background:#1B83E0"></span>Every game included</span>
         <span class="pill"><span class="dot" style="background:#D9A934"></span>No ads</span>
       </div>
@@ -200,10 +213,25 @@
 <!-- ============ CTA ============ -->
 <section class="section cta">
   <div class="wrap">
-    <h2 class="display">Be first to play.</h2>
-    <p>Tallero is in beta. Leave your email and we'll tell you the moment it lands on the App Store.</p>
+    <h2 class="display">Settle the score.</h2>
+    <p>Tallero is out now, free on the App Store. No account, no sign-up — pick a game and start scoring.</p>
 
-    <form class="notify" id="notifyForm" name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+    <!-- WAITLIST, HIDDEN AT LAUNCH (2026-09-23). The form is kept rather than
+         deleted: the markup carries the Netlify form definition, and removing
+         it would orphan the "waitlist" submissions already collected under
+         Netlify → Forms.
+
+         It said "Tallero is in beta… we'll tell you the moment it lands on the
+         App Store", which went false the moment the badge above became a real
+         download link — the page was inviting people to wait for something
+         they could already install.
+
+         Deliberately NOT repurposed into a general mailing list. That is a new
+         promise to make about someone's email, and it sits awkwardly beside
+         the no-account, nothing-leaves-your-device line this app is sold on.
+         Worth a decision of its own rather than inheriting a form that was
+         built for a different question. -->
+    <form class="notify" id="notifyForm" name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate hidden>
       <input type="hidden" name="form-name" value="waitlist" />
       <p hidden aria-hidden="true"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
       <input class="notify__input" id="notifyEmail" type="email" name="email" required
@@ -417,8 +445,12 @@ document.getElementById("yr").textContent = new Date().getFullYear();
      ============================================================ -->
 <script>
 var APPSTORE = {
-  live:   false,                                   // ← flip to true at launch
-  url:    "https://apps.apple.com/app/idXXXXXXXXXX", // ← your App Store product page
+  live:   true,                                    // launched 2026-09-23
+  // Locale-agnostic on purpose: no /us/ path segment and no ?uo= parameter,
+  // so Apple redirects each visitor to their own storefront. Tallero ships in
+  // 174 countries, and the /us/ form the lookup API hands back would send
+  // every one of them through a US page first.
+  url:    "https://apps.apple.com/app/id6781403658",
   badge:  "assets/appstore-badge.svg",             // ← Apple's official badge asset
   height: 48                                        // rendered badge height (px)
 };
