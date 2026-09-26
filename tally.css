@@ -488,7 +488,7 @@ body.beta-live .hero__actions .appstore--soon {
 .updated { font-family: var(--mono); font-size: 13px; color: var(--txt-3); margin-bottom: 8px; }
 
 /* contact cards */
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 8px; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 8px; }
 .contact-card {
   border: 1px solid var(--line); border-radius: var(--r-lg); padding: 28px;
   display: flex; flex-direction: column; gap: 8px; transition: border-color .2s, box-shadow .2s;
