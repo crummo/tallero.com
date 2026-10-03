@@ -543,3 +543,7 @@ body.beta-live .hero__actions .appstore--soon {
 .social-row { display: flex; gap: 14px; margin-top: 16px; }
 .social-row a { color: #7E8799; display: inline-flex; transition: color .15s; }
 .social-row a:hover { color: #fff; }
+
+/* FAQ section sub-headings */
+.faq-group { font-family: var(--display); font-weight: 700; font-size: 14px; letter-spacing: .02em; text-transform: uppercase; color: var(--txt-3); margin: 30px 0 4px; }
+.faq-group:first-child { margin-top: 0; }
