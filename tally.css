@@ -574,7 +574,7 @@ body.beta-live .hero__actions .appstore--soon {
 .score-table td.v { font-family: var(--display); font-weight: 700; font-size: 18px; color: var(--ink); white-space: nowrap; padding-left: 12px; }
 .score-table .note { display: block; font-size: 14px; color: var(--txt-3); margin-top: 3px; line-height: 1.45; }
 .dice { white-space: nowrap; }
-.dice .pc { min-width: 1.6em; margin: 1px 0; }
+.dice .pc { min-width: 1.6em; margin: 1px 1.5px; }
 
 .pc { display: inline-block; min-width: 2.1em; text-align: center; padding: 1px 6px; margin: 1px 1px; border: 1px solid var(--line); border-radius: 6px; background: #fff; font-family: var(--mono); font-size: .88em; font-weight: 600; color: var(--ink); box-shadow: var(--shadow-sm); white-space: nowrap; }
 .pc.r { color: #C8323F; }
