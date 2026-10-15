@@ -725,6 +725,243 @@ page("/rules/hearts/", "Hearts Rules & Scoring — Shooting the Moon — Tallero
      "How to play Hearts: passing, leading the 2 of clubs, breaking hearts, scoring the Queen of Spades, shooting the moon, rules for 3 to 6 players, and a printable score sheet.",
      [("Game rules", "/rules/"), ("Hearts", "/rules/hearts/")], ht)
 
+# ------------------------------------------------------------------ EUCHRE
+eu = hero("Euchre", "euchre", "oklch(0.928 0.045 150)", "Euchre rules and scoring",
+  "The bowers, ordering up, going alone, and how every hand is scored — plus a printable score sheet.") + f'''
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="prose">
+      <ul class="toc">
+        <li><a href="#trump">Trump &amp; the bowers</a></li>
+        <li><a href="#bidding">Bidding</a></li>
+        <li><a href="#play">Playing tricks</a></li>
+        <li><a href="#scoring">Scoring</a></li>
+        <li><a href="#score-sheet">Score sheet</a></li>
+      </ul>
+
+      <p class="gist">Euchre is a trick-taking game for two teams of two, partners sitting opposite, played with a 24-card deck of 9s through Aces. Each hand, one team calls trump and becomes the <strong>makers</strong>: they need at least three of the five tricks. Make it and they score; fall short and they're <strong>euchred</strong>, and the defenders score instead. First team to 10 wins.</p>
+
+      <h2 id="trump">Trump and the bowers</h2>
+      <p>Once trump is chosen, the two Jacks of that color become the top two trumps:</p>
+      <table class="score-table">
+        <thead><tr><th>Rank</th><th>Card</th></tr></thead>
+        <tbody>
+          <tr><td>Right bower<span class="note">The Jack of the trump suit — the highest card in the game.</span></td><td class="v">1st</td></tr>
+          <tr><td>Left bower<span class="note">The other Jack of the same color. For this hand it <em>is</em> a trump, not a card of its printed suit.</span></td><td class="v">2nd</td></tr>
+          <tr><td>Then the rest of trump<span class="note">Ace, King, Queen, 10, 9.</span></td><td class="v">3rd–7th</td></tr>
+        </tbody>
+      </table>
+      <div class="example">
+        <h3>Example: spades are trump</h3>
+        <p>{B("J♠")} {B("J♣")} {B("A♠")} {B("K♠")} {B("Q♠")} {B("10♠")} {B("9♠")}</p>
+        <p>Both Jacks outrank the Ace. The J♣ counts as a spade for the whole hand, so it can't be played to follow a club lead. The other suits rank normally: A, K, Q, J, 10, 9.</p>
+      </div>
+
+      <h2 id="bidding">Dealing and bidding</h2>
+      <ul>
+        <li>Deal five cards each, in packets of two and three. Turn the next card face up — the <strong>upcard</strong> — and set the last three aside.</li>
+        <li><strong>Round one:</strong> starting left of the dealer, each player either passes or <strong>orders up</strong> the upcard's suit as trump. The first to accept ends the bidding, and their team are the makers. The dealer picks up the upcard — even if an opponent ordered it — and discards a card face down.</li>
+        <li><strong>Round two:</strong> if everyone passes, turn the upcard down. Going round again, any player may name one of the other three suits as trump. If all four pass again, the hand is thrown in and the deal moves on.</li>
+        <li><strong>Going alone:</strong> whoever calls trump may announce they're going alone. Their partner lays their cards face down and sits the hand out.</li>
+      </ul>
+
+      <h2 id="play">Playing the tricks</h2>
+      <ul>
+        <li>The player left of the dealer leads the first trick. After that, whoever won the last trick leads.</li>
+        <li>You must follow the suit led if you can — remembering the left bower belongs to trump, not its printed suit. If you can't follow, play anything, including a trump.</li>
+        <li>The highest trump takes the trick. If no trump was played, the highest card of the suit led wins.</li>
+      </ul>
+
+      <h2 id="scoring">How scoring works</h2>
+      <table class="score-table">
+        <thead><tr><th>Result</th><th>Points</th></tr></thead>
+        <tbody>
+          <tr><td>Makers take 3 or 4 tricks</td><td class="v">1</td></tr>
+          <tr><td>Makers take all 5 (a march)</td><td class="v">2</td></tr>
+          <tr><td>Lone hand takes all 5</td><td class="v">4</td></tr>
+          <tr><td>Lone hand takes 3 or 4</td><td class="v">1</td></tr>
+          <tr><td>Makers euchred<span class="note">Fewer than three tricks — the defenders score.</span></td><td class="v">2</td></tr>
+        </tbody>
+      </table>
+      <p>Only one team scores each hand. The first team to reach 10 points wins — you don't need to land on it exactly.</p>
+
+      <h2>Common variants</h2>
+      <ul>
+        <li><strong>Stick the dealer:</strong> no throw-ins. If the first three players pass in round two, the dealer must name a trump suit.</li>
+        <li><strong>Defending alone:</strong> some tables let a defender go alone too, and pay 4 if they euchre the makers.</li>
+        <li><strong>Cutthroat:</strong> three players, each playing for themselves against the maker.</li>
+      </ul>
+
+      <h2>Quick answers</h2>
+      <h3>Is the left bower a trump?</h3>
+      <p>Yes. For that hand it's the second-highest trump and belongs to the trump suit — it can't be used to follow its printed suit.</p>
+      <h3>Does the dealer have to pick up the upcard if an opponent orders it?</h3>
+      <p>Yes. Whoever orders it up, the dealer takes the upcard into their hand and discards one.</p>
+      <h3>What does “euchred” mean?</h3>
+      <p>The team that called trump took fewer than three tricks. The other team scores 2.</p>
+''' + callout("One tap per hand.",
+  "Tap what happened — a point, a march, a loner or a euchre — on the team that scored, and Tallero keeps the running total to 10.") + '''
+    </div>
+  </div>
+</section>
+''' + sheet("Euchre score sheet", "Points each hand and the running total for each team. First to 10.", "+,Total", 20, 2, 2, 2, unit="teams")
+
+page("/rules/euchre/", "Euchre Rules & Scoring — Bowers, Going Alone — Tallero",
+     "How to play Euchre: the right and left bowers, ordering up and calling trump, going alone, how every hand is scored, common variants, and a printable score sheet.",
+     [("Game rules", "/rules/"), ("Euchre", "/rules/euchre/")], eu)
+
+# ------------------------------------------------------------------ GIN RUMMY
+gr = hero("Gin Rummy", "ginrummy", "oklch(0.928 0.045 194)", "Gin Rummy rules and scoring",
+  "Sets, runs and deadwood, when you can knock, laying off, and how gin, big gin and undercuts are scored — plus a printable score sheet.") + f'''
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="prose">
+      <ul class="toc">
+        <li><a href="#melds">Sets &amp; runs</a></li>
+        <li><a href="#turn">A turn</a></li>
+        <li><a href="#knock">Knocking</a></li>
+        <li><a href="#scoring">Scoring</a></li>
+        <li><a href="#game">Winning the game</a></li>
+        <li><a href="#score-sheet">Score sheet</a></li>
+      </ul>
+
+      <p class="gist">A two-player game. Draw and discard until your ten cards are organised into sets and runs, then end the hand by <strong>knocking</strong>. The cards that don't fit — your <strong>deadwood</strong> — must total 10 or less to knock, and the knocker scores the difference between the two hands' deadwood. First to 100 wins.</p>
+
+      <h2 id="melds">Sets, runs and deadwood</h2>
+      <ul>
+        <li>A <strong>set</strong> is three or four cards of the same rank. A <strong>run</strong> is three or more in sequence, all one suit.</li>
+        <li>Each card can be in only one set or run.</li>
+        <li>Aces are low: A-2-3 is a run, but Q-K-A and K-A-2 are not.</li>
+        <li>Deadwood counts face cards 10, aces 1, and everything else its number.</li>
+      </ul>
+      <div class="example">
+        <h3>Example: a hand that can knock</h3>
+        <ul>
+          <li>Run: {B("7♣")} {B("8♣")} {B("9♣")}</li>
+          <li>Set: {R("4♦")} {R("4♥")} {B("4♠")} {B("4♣")}</li>
+          <li>Deadwood: {R("5♥")} {R("3♦")} {B("A♠")}</li>
+        </ul>
+        <p>Seven cards are in a run and a set. The leftover 5, 3 and ace total <strong>9</strong> — 10 or less, so this hand can knock.</p>
+      </div>
+
+      <h2 id="turn">Dealing and taking a turn</h2>
+      <ul>
+        <li>Deal ten cards each, one at a time. Turn the next card face up to start the discard pile; the rest is the stock.</li>
+        <li>The non-dealer may take that first upcard; if they pass, the dealer may. If neither wants it, the non-dealer draws from the stock and play carries on normally.</li>
+        <li>Each turn: draw one card — from the stock or the top of the discard pile — then discard one.</li>
+        <li>If only two cards are left in the stock and the player who drew the third-from-last discards without knocking, the hand is void and nobody scores.</li>
+      </ul>
+
+      <h2 id="knock">Knocking and laying off</h2>
+      <ul>
+        <li>You may knock on your turn if your deadwood totals 10 or less: draw as usual, then discard <strong>face down</strong>. Spread your hand with sets and runs together and deadwood apart.</li>
+        <li>You never have to knock — you can keep playing to cut your deadwood or go for gin.</li>
+        <li>The other player then spreads their hand and may <strong>lay off</strong>: add their deadwood cards to the knocker's sets and runs, reducing their own count. They can't lay off onto the knocker's deadwood.</li>
+        <li>After a gin, Pagat's rules allow no laying off; Bicycle's still let the opponent lay off.</li>
+      </ul>
+
+      <h2 id="scoring">How scoring works</h2>
+      <table class="score-table">
+        <thead><tr><th>Result</th><th>Score</th></tr></thead>
+        <tbody>
+          <tr><td>Knock<span class="note">The knocker has less deadwood than the opponent, after laying off.</span></td><td class="v">the difference</td></tr>
+          <tr><td>Gin<span class="note">All ten cards in sets and runs. Scores the opponent's deadwood plus a bonus, and can't be undercut.</span></td><td class="v">+20 or +25</td></tr>
+          <tr><td>Big Gin<span class="note">All eleven cards — including the one just drawn — in sets and runs, with no discard. A popular extra; not in every rulebook.</span></td><td class="v">+31</td></tr>
+          <tr><td>Undercut<span class="note">The opponent's deadwood is equal to or lower than the knocker's. The <em>opponent</em> scores the difference plus a bonus; the knocker scores nothing.</span></td><td class="v">+10 to +25</td></tr>
+        </tbody>
+      </table>
+      <p>Bonus values genuinely differ: Pagat's and Bicycle's rules give 20 for gin and 10 for an undercut, while 25 for both is widely played. Settle it before the first deal.</p>
+      <div class="example">
+        <h3>Example: an undercut</h3>
+        <p>You knock with 8 in deadwood. Your opponent lays off two cards on your run and is left with 6. They've undercut you: they score 8 − 6 = 2, plus the undercut bonus. You score nothing for the hand.</p>
+      </div>
+
+      <h2 id="game">Winning the game</h2>
+      <p>Hands continue until someone reaches 100. Traditional scoring then adds end-of-game bonuses before totting up:</p>
+      <ul>
+        <li><strong>Game bonus:</strong> 100 to the winner.</li>
+        <li><strong>Line or box bonus:</strong> a bonus for every hand each player won — 20 a hand in Pagat's rules.</li>
+        <li><strong>Shutout:</strong> if the loser never scored, Pagat doubles the game bonus to 200; Bicycle adds an extra 100.</li>
+      </ul>
+      <p>Plenty of tables skip these and simply play first to 100.</p>
+
+      <h2>Quick answers</h2>
+      <h3>Can you knock with exactly 10?</h3>
+      <p>Yes — 10 or less.</p>
+      <h3>What if both hands have the same deadwood?</h3>
+      <p>That counts as an undercut: the knocker's opponent wins the hand.</p>
+''' + callout("The arithmetic, done.",
+  "Pick Knock, Gin, Big Gin or Undercut, enter both players' deadwood, and Tallero adds the difference and the bonus — you'll see the sum before you commit.") + '''
+    </div>
+  </div>
+</section>
+''' + sheet("Gin Rummy score sheet", "Each hand's score and the running total. First to 100.", "+,Total", 20, 2, 2, 2)
+
+page("/rules/gin-rummy/", "Gin Rummy Rules & Scoring — Knock, Gin & Undercut — Tallero",
+     "How to play Gin Rummy: sets, runs and deadwood, when you can knock, laying off, scoring knocks, gin, big gin and undercuts, end-of-game bonuses, and a printable score sheet.",
+     [("Game rules", "/rules/"), ("Gin Rummy", "/rules/gin-rummy/")], gr)
+
+# ------------------------------------------------------------------ MÖLKKY
+def pins(rows):
+    return '<div class="pins" role="img" aria-label="Starting formation: back row 7, 9, 8; then 5, 11, 12, 6; then 3, 10, 4; front row 1, 2.">' + "".join(
+        '<div class="pins__row">' + "".join(f'<span class="pin">{n}</span>' for n in r) + '</div>' for r in rows) + '<div class="pins__line">throwing line, 3.5 m (11.5 ft) away</div></div>'
+
+mk = hero("Mölkky", "molkky", "oklch(0.928 0.045 293)", "Mölkky rules and scoring",
+  "How to set up the pins, how a throw scores, the exactly-50 finish and the three-miss rule — plus a printable score sheet.") + f'''
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="prose">
+      <ul class="toc">
+        <li><a href="#setup">Setting up</a></li>
+        <li><a href="#scoring">Scoring</a></li>
+        <li><a href="#fifty">Exactly 50</a></li>
+        <li><a href="#misses">Three misses</a></li>
+        <li><a href="#score-sheet">Score sheet</a></li>
+      </ul>
+
+      <p class="gist">A Finnish throwing game. Toss a wooden throwing pin at twelve numbered pins: knock one down and you score its number; knock several down and you score how many fell. Fallen pins are stood up where they land, so the field spreads out all game. First to <strong>exactly 50</strong> wins — go over and you drop back to 25.</p>
+
+      <h2 id="setup">Setting up</h2>
+      <p>Stand the twelve pins in a tight block, 1 and 2 nearest the thrower, 3.5 metres (11.5 ft) from the throwing line:</p>
+      {pins([[7, 9, 8], [5, 11, 12, 6], [3, 10, 4], [1, 2]])}
+      <ul>
+        <li>Players take turns throwing from behind the line. Any throwing style is allowed.</li>
+        <li>After each throw, fallen pins are stood back up exactly where they landed, number facing the thrower.</li>
+      </ul>
+
+      <h2 id="scoring">How scoring works</h2>
+      <table class="score-table">
+        <thead><tr><th>Throw</th><th>Score</th></tr></thead>
+        <tbody>
+          <tr><td>One pin knocked down<span class="note">Knock down the 12 alone for the biggest single throw.</span></td><td class="v">pin's number</td></tr>
+          <tr><td>Two or more pins down<span class="note">Five pins down scores 5, whatever their numbers.</span></td><td class="v">number of pins</td></tr>
+          <tr><td>Miss<span class="note">Three misses in a row and you're out.</span></td><td class="v">0</td></tr>
+        </tbody>
+      </table>
+      <p>A pin only counts if it's fully on the ground. One leaning on another pin, on the throwing pin, or on a natural feature like a root doesn't count; one resting against something artificial, like a curb, does.</p>
+
+      <h2 id="fifty">Finishing on exactly 50</h2>
+      <p>To win you need <strong>exactly 50</strong>. Overshoot and your score drops back to 25. Near the end, that makes the right single pin worth far more than a big scatter.</p>
+      <div class="example">
+        <h3>Example</h3>
+        <p>You're on 44 and need 6. Knocking down the 6 alone wins. Knocking down six pins at once also scores 6 and wins. Knocking down the 9 takes you to 53 — back to 25.</p>
+      </div>
+
+      <h2 id="misses">Three misses and you're out</h2>
+      <p>Miss every pin on three of your turns in a row and you're eliminated. Scoring anything resets the count. If everyone else is eliminated, the last player standing wins.</p>
+
+''' + callout("Busts and eliminations, handled.",
+  "Enter each throw and Tallero drops an overshoot back to 25, counts consecutive misses, and knocks out anyone who misses three in a row.") + '''
+      <p class="small" style="margin-top:18px;color:var(--txt-3)">Mölkky® is a trademark of its owner. Tallero is independent and not affiliated with or endorsed by the maker of Mölkky.</p>
+    </div>
+  </div>
+</section>
+''' + sheet("Mölkky score sheet", "Each throw's points and the running total. Mark a miss with an X — three in a row and you're out.", "+,Total", 25, 2, 8, 4)
+
+page("/rules/molkky/", "Mölkky Rules & Scoring — Exactly 50 — Tallero",
+     "How to play Mölkky: the starting pin formation, how one pin and several pins score, finishing on exactly 50, falling back to 25, the three-miss rule, and a printable score sheet.",
+     [("Game rules", "/rules/"), ("Mölkky", "/rules/molkky/")], mk)
+
 # ------------------------------------------------------------------ HUB
 def card(key, tile, name, blurb, path):
     return f'''      <a class="rules-card" href="{path}">
@@ -754,11 +991,14 @@ hub = '''
     card("yahtzee", "oklch(0.928 0.045 293)", "Yahtzee", "Every box on the card, the 63-point bonus, bonus Yahtzees and the Joker rules.", "/rules/yahtzee/"),
     card("spades", "oklch(0.928 0.045 194)", "Spades", "Bidding, breaking spades, and how bids, bags and nil are scored.", "/rules/spades/"),
     card("hearts", "oklch(0.928 0.045 357)", "Hearts", "Passing, the Queen of Spades, and how shooting the moon works.", "/rules/hearts/"),
+    card("euchre", "oklch(0.928 0.045 150)", "Euchre", "The bowers, ordering up, going alone, and how every hand scores.", "/rules/euchre/"),
+    card("ginrummy", "oklch(0.928 0.045 194)", "Gin Rummy", "Deadwood, knocking, laying off, and scoring gin, big gin and undercuts.", "/rules/gin-rummy/"),
+    card("molkky", "oklch(0.928 0.045 293)", "Mölkky", "The pin setup, how throws score, exactly 50, and the three-miss rule.", "/rules/molkky/"),
 ]) + '''
     </div>
   </div>
 </section>
 '''
 page("/rules/", "Game Rules & Scoring — Tallero",
-     "Rules and scoring guides for Farkle, Cribbage, Phase 10, Yahtzee, Spades and Hearts, with printable score sheets — from Tallero, the score-keeper for game night.",
+     "Rules and scoring guides for Farkle, Cribbage, Phase 10, Yahtzee, Spades, Hearts, Euchre, Gin Rummy and Mölkky, with printable score sheets — from Tallero, the score-keeper for game night.",
      [("Game rules", "/rules/")], hub)
