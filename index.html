@@ -40,6 +40,7 @@
     <nav class="site-nav" id="siteNav">
       <a href="#features">Features</a>
       <a href="#games">Games</a>
+      <a href="rules/">Rules</a>
       <a href="support.html">Support</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
@@ -258,6 +259,7 @@
         <ul>
           <li><a href="#features">Features</a></li>
           <li><a href="#games">Games</a></li>
+          <li><a href="rules/">Game rules</a></li>
           <li><a class="js-appstore-link" href="#" aria-disabled="true">App Store (coming soon)</a></li>
         </ul>
       </div>
@@ -303,6 +305,8 @@ var GAMES = [
   { key:"farkle",     name:"Farkle",      tile:"#FAD8DC" },
   { key:"rummy",      name:"Rummy",       tile:"#FBEAC6" }
 ];
+/* Games with a rules page on the site: their chip links to it. */
+var RULES = { farkle:"rules/farkle/", cribbage:"rules/cribbage/", phase10:"rules/phase-10/" };
 var GBY = {}; GAMES.forEach(function(g){ GBY[g.key] = g; });
 function icon(key, dark){ return "assets/" + (dark ? "dark/" : "games/") + key + ".svg"; }
 function tileImg(key, dark){
@@ -343,7 +347,10 @@ function recentCard(r, dark){
     var face = g.emoji
       ? '<span class="tile__emoji" role="img" aria-label="'+ g.name +'">'+ g.emoji +'</span>'
       : '<img src="'+ icon(g.key) +'" alt="'+ g.name +' scoring"/>';
-    html += '<div class="game-chip"><div class="tile" style="background:'+ g.tile +'">'+ face +'</div><span class="nm">'+ g.name +'</span></div>';
+    var inner = '<div class="tile" style="background:'+ g.tile +'">'+ face +'</div><span class="nm">'+ g.name +'</span>';
+    html += RULES[g.key]
+      ? '<a class="game-chip" href="'+ RULES[g.key] +'" title="'+ g.name +' rules">'+ inner +'</a>'
+      : '<div class="game-chip">'+ inner +'</div>';
   });
   document.getElementById("gamesGrid").innerHTML = html;
 })();

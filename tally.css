@@ -547,3 +547,88 @@ body.beta-live .hero__actions .appstore--soon {
 /* FAQ section sub-headings */
 .faq-group { font-family: var(--display); font-weight: 700; font-size: 14px; letter-spacing: .02em; text-transform: uppercase; color: var(--txt-3); margin: 30px 0 4px; }
 .faq-group:first-child { margin-top: 0; }
+
+/* ============================================================
+   Game rules pages (/rules/…)
+   ============================================================ */
+.prose [id], .sheet h2[id] { scroll-margin-top: 96px; }
+.crumbs { font-size: 14px; color: var(--txt-3); margin-bottom: 18px; }
+.crumbs a { color: var(--blue); font-weight: 600; }
+.crumbs a:hover { text-decoration: underline; }
+.rules-hero__row { display: flex; align-items: center; gap: 18px; margin-bottom: 14px; }
+.rules-hero__row .tile { width: 64px; height: 64px; border-radius: 18px; display: grid; place-items: center; flex: none; box-shadow: var(--shadow-sm); }
+.rules-hero__row .tile img { width: 60%; height: 60%; }
+.rules-hero__row h1 { margin-bottom: 0; }
+
+.prose .toc, .toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 36px; padding: 0; list-style: none; }
+.toc li { margin: 0; }
+.toc a { display: inline-block; padding: 7px 14px; border-radius: 999px; background: var(--bg-soft); color: var(--txt-2); font-size: 14px; font-weight: 600; }
+.toc a:hover { color: var(--blue); }
+
+.gist { font-size: 19px; line-height: 1.6; color: var(--txt); border-left: 4px solid var(--gold); padding: 4px 0 4px 18px; margin: 0 0 8px; }
+
+.score-table { width: 100%; border-collapse: collapse; margin: 8px 0 18px; font-size: 16px; }
+.score-table th { text-align: left; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--txt-3); padding: 0 8px 10px 0; border-bottom: 2px solid var(--line); }
+.score-table th:last-child, .score-table td.v { text-align: right; padding-right: 0; }
+.score-table td { padding: 12px 8px 12px 0; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--txt); }
+.score-table td.v { font-family: var(--display); font-weight: 700; font-size: 18px; color: var(--ink); white-space: nowrap; padding-left: 12px; }
+.score-table .note { display: block; font-size: 14px; color: var(--txt-3); margin-top: 3px; line-height: 1.45; }
+.dice { white-space: nowrap; }
+.dice .pc { min-width: 1.6em; margin: 1px 0; }
+
+.pc { display: inline-block; min-width: 2.1em; text-align: center; padding: 1px 6px; margin: 1px 1px; border: 1px solid var(--line); border-radius: 6px; background: #fff; font-family: var(--mono); font-size: .88em; font-weight: 600; color: var(--ink); box-shadow: var(--shadow-sm); white-space: nowrap; }
+.pc.r { color: #C8323F; }
+
+.example { background: var(--bg-warm); border: 1px solid var(--line-soft); border-radius: var(--r); padding: 18px 20px; margin: 12px 0 20px; }
+.example h3 { margin-top: 0 !important; font-size: 16px !important; }
+.example ol, .example ul { margin-bottom: 8px !important; }
+.example p:last-child { margin-bottom: 0 !important; }
+
+.callout { display: flex; gap: 24px; align-items: center; justify-content: space-between; flex-wrap: wrap; background: var(--blue); color: #fff; border-radius: var(--r-lg); padding: 28px 30px; margin: 48px 0 8px; }
+.callout h2 { font-family: var(--display); font-weight: 800; font-size: 26px; letter-spacing: -.02em; margin: 0 0 6px !important; color: #fff; }
+.callout p { color: #CFE1F3 !important; margin: 0 !important; max-width: 46ch; }
+.callout .appstore-badge img { height: 48px; width: auto; display: block; }
+
+.rules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.rules-card { border: 1px solid var(--line); border-radius: var(--r-lg); padding: 24px; display: flex; flex-direction: column; gap: 10px; transition: border-color .2s, box-shadow .2s; }
+.rules-card:hover { border-color: transparent; box-shadow: var(--shadow); }
+.rules-card .tile { width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center; }
+.rules-card .tile img { width: 60%; height: 60%; }
+.rules-card h2 { font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: -.02em; }
+.rules-card p { color: var(--txt-2); font-size: 15px; }
+.rules-card .link { color: var(--blue); font-weight: 600; margin-top: auto; }
+
+/* Printable score sheet */
+.sheet { padding: 0 0 64px; }
+.sheet__head { display: flex; align-items: end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+.sheet__head h2 { font-family: var(--display); font-weight: 700; font-size: 26px; letter-spacing: -.02em; }
+.sheet__head p { color: var(--txt-2); margin-top: 4px; }
+.sheet__controls { display: flex; gap: 10px; align-items: center; }
+.sheet__controls label { font-size: 14px; font-weight: 600; color: var(--txt-2); }
+.sheet__controls select { font: inherit; font-size: 15px; padding: 9px 12px; border-radius: var(--r-sm); border: 1.5px solid var(--line); background: #fff; color: var(--ink); }
+.sheet__scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); background: #fff; }
+.sheet__title { display: none; }
+.sheet table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 13px; }
+.sheet th, .sheet td { border: 1px solid var(--line); height: 30px; padding: 2px 6px; text-align: center; }
+.sheet thead th { background: var(--bg-soft); color: var(--txt-2); font-weight: 600; }
+.sheet thead tr.names th { height: 38px; background: #fff; }
+.sheet td.n { width: 34px; color: var(--txt-3); font-weight: 600; background: var(--bg-soft); }
+.sheet td.gap, .sheet th.gap { border-right: 2px solid var(--txt-3); }
+.sheet__foot { font-size: 12px; color: var(--txt-3); margin-top: 8px; }
+
+@media print {
+  body.print-sheet > *:not(#sheet) { display: none !important; }
+  body.print-sheet { background: #fff; }
+  body.print-sheet #sheet { padding: 0; }
+  body.print-sheet .sheet__head { display: none; }
+  body.print-sheet .sheet__title { display: block; font: 700 18px var(--display); margin: 0 0 10px; }
+  body.print-sheet .sheet__scroll { border: 0; overflow: visible; }
+  body.print-sheet .sheet table { min-width: 0; }
+  body.print-sheet .sheet th, body.print-sheet .sheet td { border-color: #999; height: 26px; }
+  body.print-sheet .sheet thead th, body.print-sheet .sheet td.n { background: #f2f2f2; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  @page { margin: 12mm; }
+}
+@media (max-width: 560px) {
+  .callout { padding: 24px 22px; }
+  .score-table td.v { font-size: 16px; }
+}
