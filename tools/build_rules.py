@@ -1330,7 +1330,8 @@ dm = hero("Dominoes", "dominoes", "oklch(0.928 0.045 194)", "Dominoes rules and 
       <ul>
         <li><strong>Block:</strong> you never draw. If you can't play, you pass.</li>
         <li><strong>Draw:</strong> draw from the boneyard until you can play, and pass only when it's empty.</li>
-        <li>The hand ends when someone plays their last tile or nobody can move. The player with the fewest pips wins the hand and scores the pips in the other hands (some tables subtract their own).</li>
+        <li>The hand ends when someone plays their last tile or nobody can move. The player with the fewest pips wins the hand and scores the other players' pips minus their own. A tie for fewest scores nothing.</li>
+        <li>Play to 100 with two players or partnerships, or 61 with three or four playing individually — so a cribbage board can keep score.</li>
       </ul>
 ''' + callout("Fives, tallied.",
   "Quick-add buttons for every multiple of five during the hand, then enter the leftover pips — Tallero rounds them and adds them up.") + '''
@@ -1362,7 +1363,7 @@ db = hero("Dutch Blitz", "dutchblitz", "oklch(0.928 0.045 78)", "Dutch Blitz rul
       <h2 id="setup">Setup</h2>
       <ul>
         <li>Each player has their own 40-card deck — red, blue, green and yellow, numbered 1 to 10. The backs (pump, carriage, plow, pail) tell the decks apart.</li>
-        <li>Deal yourself a <strong>Blitz pile</strong> of 10 cards, top card face up, and three face-up <strong>Post piles</strong> of one card each.</li>
+        <li>Deal yourself a <strong>Blitz pile</strong> of 10 cards, top card face up, and three face-up <strong>Post piles</strong> of one card each. With two players, four or five Post piles are often used to keep the game from stalling.</li>
         <li>The rest is your <strong>hand</strong>, held face down.</li>
       </ul>
 
@@ -1377,7 +1378,7 @@ db = hero("Dutch Blitz", "dutchblitz", "oklch(0.928 0.045 78)", "Dutch Blitz rul
 
       <h2 id="post">Post piles</h2>
       <ul>
-        <li>Post piles build <strong>down</strong>, and each card must alternate between boy and girl (red and blue cards show a boy, green and yellow a girl).</li>
+        <li>Post piles build <strong>down</strong>, and each card must alternate between a boy and a girl. In the standard deck, red and blue cards show a boy and green and yellow cards a girl; expansion packs use other colors, so go by the picture.</li>
         <li>Only the exposed lowest card of a Post pile is playable.</li>
         <li>When you empty a Post pile, fill it with the top card of your Blitz pile — another way to drain it.</li>
       </ul>
