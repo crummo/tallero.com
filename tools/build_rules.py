@@ -962,6 +962,246 @@ page("/rules/molkky/", "Mölkky Rules & Scoring — Exactly 50 — Tallero",
      "How to play Mölkky: the starting pin formation, how one pin and several pins score, finishing on exactly 50, falling back to 25, the three-miss rule, and a printable score sheet.",
      [("Game rules", "/rules/"), ("Mölkky", "/rules/molkky/")], mk)
 
+# ------------------------------------------------------------------ CORNHOLE
+ch = hero("Cornhole", "cornhole", "oklch(0.928 0.045 150)", "Cornhole rules and scoring",
+  "How cancellation scoring works, what counts as a dead bag, board setup and distances, and how a game is won — plus a printable score sheet.") + f'''
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="prose">
+      <ul class="toc">
+        <li><a href="#scoring">Scoring</a></li>
+        <li><a href="#example">Example frame</a></li>
+        <li><a href="#setup">Setup</a></li>
+        <li><a href="#play">Playing a frame</a></li>
+        <li><a href="#winning">Winning</a></li>
+        <li><a href="#score-sheet">Score sheet</a></li>
+      </ul>
+
+      <p class="gist">Two sides take turns pitching bags at a board 27 feet away — four bags each, eight to a <strong>frame</strong>. A bag through the hole is 3, a bag on the board is 1, and only the side with more points in a frame scores: they get the <strong>difference</strong>. First to 21 wins.</p>
+
+      <h2 id="scoring">How scoring works</h2>
+      <table class="score-table">
+        <thead><tr><th>Bag</th><th>Points</th></tr></thead>
+        <tbody>
+          <tr><td>In the hole<span class="note">Goes through at any point in the frame — including being knocked in by another bag.</span></td><td class="v">3</td></tr>
+          <tr><td>On the board<span class="note">Still resting on the board when the frame ends.</span></td><td class="v">1</td></tr>
+          <tr><td>Dead bag<span class="note">Touched the ground before landing on the board, is touching both board and ground, or hit an overhead object.</span></td><td class="v">0</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Cancellation scoring:</strong> add up each side's points for the frame, then subtract the smaller from the larger. Only the side that came out ahead scores, and it scores the difference. A tied frame scores nothing for anyone.</p>
+
+      <div class="example" id="example">
+        <h3>Example frame</h3>
+        <p>You: one bag in the hole and two on the board — <strong>5</strong>. Them: three bags on the board — <strong>3</strong>.</p>
+        <p>You score 5 − 3 = <strong>2</strong>. They score nothing, even though they had more bags on the board.</p>
+      </div>
+
+      <h2 id="setup">Setting up</h2>
+      <ul>
+        <li>Place the boards facing each other <strong>27 feet apart</strong>, front edge to front edge.</li>
+        <li>A regulation board is 2 ft × 4 ft, with a 6-inch hole centered 9 inches from the top.</li>
+        <li>The front edge of each board is the foul line. Pitch from beside the board, with your feet behind it.</li>
+      </ul>
+
+      <h2 id="play">Playing a frame</h2>
+      <ul>
+        <li>Toss a coin for first pitch. Players alternate until all eight bags are thrown, then the frame is scored.</li>
+        <li>Bags can be knocked in, knocked off or blocked right up to the last pitch — nothing counts until the frame is over.</li>
+        <li><strong>Singles:</strong> both players pitch from the same end, then walk to the other board, score, and pitch back.</li>
+        <li><strong>Doubles:</strong> partners stand at opposite boards. One player from each team pitches at one end, then their partners pitch back from the other.</li>
+        <li>The side that scored pitches first in the next frame. If nobody scored, the side that went first keeps it.</li>
+      </ul>
+
+      <h2 id="winning">Winning</h2>
+      <p>In the American Cornhole League's rules, the first side to <strong>reach or pass 21</strong> at the end of a frame wins. There's no need to land on it exactly.</p>
+      <h3>Backyard house rules</h3>
+      <ul>
+        <li><strong>Exactly 21 (bust):</strong> you have to land on 21 exactly, and going over knocks you back to a lower score — Tallero's default drops you to 11.</li>
+        <li><strong>Skunk:</strong> end the game early if one side leads 11–0.</li>
+        <li><strong>Win by two:</strong> keep playing until someone is at least 21 and two ahead.</li>
+      </ul>
+
+      <h2>Quick answers</h2>
+      <h3>Does a bag that bounces off the ground onto the board count?</h3>
+      <p>No. Any bag that touches the ground before coming to rest on the board is dead and comes off.</p>
+      <h3>Do both teams score in a frame?</h3>
+      <p>Not with cancellation scoring — only the side with more points scores the difference. Some casual games let both sides keep everything, which makes for a much faster game.</p>
+''' + callout("Every frame, every format.",
+  "Enter the difference for the side that won the frame. Tallero keeps the totals to 21 and handles busts, skunks and win-by-two if your yard plays them.") + '''
+    </div>
+  </div>
+</section>
+''' + sheet("Cornhole score sheet", "Points each frame and the running total for each side. First to 21.", "+,Total", 20, 2, 2, 2, unit="teams")
+
+page("/rules/cornhole/", "Cornhole Rules & Scoring — Cancellation Scoring Explained — Tallero",
+     "How to play cornhole: cancellation scoring, 3 for the hole and 1 on the board, dead bags, board distance and setup, singles and doubles, winning at 21, backyard house rules, and a printable score sheet.",
+     [("Game rules", "/rules/"), ("Cornhole", "/rules/cornhole/")], ch)
+
+# ------------------------------------------------------------------ GOLF (CARDS)
+def down(): return '<span class="card down" role="img" aria-label="face-down card"></span>'
+golf = hero("Golf (Cards)", "golf_cards", "oklch(0.928 0.045 150)", "Golf card game rules and scoring",
+  "Six-card Golf: the deal, a turn, what every card costs, how column pairs cancel, and the four-, eight- and nine-card versions — plus a printable scorecard.") + f'''
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="prose">
+      <ul class="toc">
+        <li><a href="#values">Card values</a></li>
+        <li><a href="#deal">The deal</a></li>
+        <li><a href="#turn">A turn</a></li>
+        <li><a href="#end">Ending a hole</a></li>
+        <li><a href="#variants">Other versions</a></li>
+        <li><a href="#score-sheet">Scorecard</a></li>
+      </ul>
+
+      <p class="gist">Golf is a card game where the low score wins. Each player has six cards laid out face down in two rows of three, and swaps cards in and out over the hand, trying to end with as few points as possible — a matching pair in the same column cancels to nothing. Each hand is a <strong>hole</strong>; play nine and the lowest total wins.</p>
+
+      <h2 id="values">What the cards cost</h2>
+      <table class="score-table">
+        <thead><tr><th>Card</th><th>Points</th></tr></thead>
+        <tbody>
+          <tr><td>2</td><td class="v">−2</td></tr>
+          <tr><td>Ace</td><td class="v">1</td></tr>
+          <tr><td>3 – 10</td><td class="v">face value</td></tr>
+          <tr><td>Jack, Queen</td><td class="v">10</td></tr>
+          <tr><td>King</td><td class="v">0</td></tr>
+          <tr><td>A pair in the same column<span class="note">Two cards of the same rank, one above the other, score 0 — even a pair of 2s.</span></td><td class="v">0</td></tr>
+        </tbody>
+      </table>
+      <div class="example">
+        <h3>Example layout</h3>
+        <div class="card-grid">
+          <div>{B("8♣")}{down()}{R("K♥")}</div>
+          <div>{R("8♦")}{B("4♠")}{down()}</div>
+        </div>
+        <p>The two 8s share a column, so they cancel — side by side in a row they'd cost 16. The King is free, the 4 costs 4, and the two face-down cards are still unknown.</p>
+      </div>
+
+      <h2 id="deal">The deal</h2>
+      <ul>
+        <li>Deal six cards to each player, face down, in two rows of three. Use one deck for up to four players, two for five to eight, and three beyond that.</li>
+        <li>Put the rest face down as the stock, and turn its top card face up to start the discard pile.</li>
+        <li>Each player turns any two of their own cards face up. The others stay hidden — from everyone, the owner included.</li>
+      </ul>
+
+      <h2 id="turn">Taking a turn</h2>
+      <ul>
+        <li>Draw one card: the top of the stock, or the top of the discard pile.</li>
+        <li>Swap it for any card in your layout, face up or face down. The card you replace goes face up on the discard pile.</li>
+        <li>If you drew from the stock and don't want the card, you can discard it instead. Some tables then make you turn one of your face-down cards up.</li>
+        <li>A card taken from the discard pile has to go into your layout — you can't just put it back.</li>
+      </ul>
+
+      <h2 id="end">Ending a hole</h2>
+      <ul>
+        <li>The hole ends as soon as one player's sixth card is face up. Many groups give everyone else one more turn first.</li>
+        <li>Everyone turns over any face-down cards and adds up their layout.</li>
+        <li>A standard game is nine holes, lowest total wins. Eighteen holes is a common longer game.</li>
+      </ul>
+
+      <h2>Common variants</h2>
+      <ul>
+        <li><strong>Jokers:</strong> add two jokers to the deck, worth −2 each.</li>
+        <li><strong>Going-out penalty:</strong> some tables penalise the player who ended the hole if anyone ties or beats their score.</li>
+      </ul>
+
+      <h2 id="variants">Four-, eight- and nine-card Golf</h2>
+      <ul>
+        <li><strong>Four-card:</strong> a 2 × 2 layout. Players may <strong>knock</strong> to end the hand.</li>
+        <li><strong>Eight-card:</strong> four columns of two, played with a double deck and jokers.</li>
+        <li><strong>Nine-card:</strong> a 3 × 3 layout with three cards turned up to start. A full column of three matching cards scores 0.</li>
+        <li><strong>Ten-card:</strong> five columns of two, with at least two decks.</li>
+      </ul>
+''' + callout("Nine holes, no adding up.",
+  "Enter each player's hand total per hole — negative scores welcome — and Tallero keeps the running totals for 9 holes, 18, or out at 100.") + '''
+    </div>
+  </div>
+</section>
+''' + sheet("Golf scorecard", "Each player's score for every hole, and the total. Lowest wins.", "Score", 0, 2, 8, 4,
+            labels=["Hole 1", "Hole 2", "Hole 3", "Hole 4", "Hole 5", "Hole 6", "Hole 7", "Hole 8", "Hole 9", "*Total"])
+
+page("/rules/golf/", "Golf Card Game Rules & Scoring — Six-Card Golf — Tallero",
+     "How to play the Golf card game: dealing six-card Golf, taking a turn, card values (2s are −2, Kings 0), cancelling column pairs, ending a hole, four-, eight- and nine-card versions, and a printable scorecard.",
+     [("Game rules", "/rules/"), ("Golf (Cards)", "/rules/golf/")], golf)
+
+# ------------------------------------------------------------------ QWIRKLE
+QC = ["#D43838", "#E8821E", "#F2C12E", "#2E7D43", "#1E5BBF", "#7B3AA8"]
+QS = {"circle": "●", "diamond": "◆", "square": "■", "clover": "✤", "starburst": "✸", "star": "✦"}
+def qt(shape, color, placed=False):
+    return f'<span class="qt{" placed" if placed else ""}" style="color:{QC[color]}" role="img" aria-label="{shape}">{QS[shape]}</span>'
+def qrow(cells):
+    return '<div>' + "".join(qt(*c) if c else '<span class="qt empty"></span>' for c in cells) + '</div>'
+
+qw = hero("Qwirkle", "qwirkle", "oklch(0.928 0.045 255)", "Qwirkle rules and scoring",
+  "How lines are built, how every turn is scored, the 12-point Qwirkle, trading tiles and the end-game bonus — plus a printable score sheet.") + f'''
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="prose">
+      <ul class="toc">
+        <li><a href="#lines">Building lines</a></li>
+        <li><a href="#turn">A turn</a></li>
+        <li><a href="#scoring">Scoring</a></li>
+        <li><a href="#end">Ending</a></li>
+        <li><a href="#score-sheet">Score sheet</a></li>
+      </ul>
+
+      <p class="gist">108 tiles: six colors, six shapes, three of every combination. Take turns adding tiles to a shared grid, building lines where every tile shares a color <em>or</em> a shape. You score every line you build or extend, and completing a line of six — a <strong>Qwirkle</strong> — is worth 12. When the bag is empty and someone plays their last tile, highest score wins.</p>
+
+      <h2 id="lines">Building lines</h2>
+      <ul>
+        <li>A line is all one color in different shapes, or all one shape in different colors.</li>
+        <li>No tile can appear twice in the same line, so a line can never be longer than six.</li>
+        <li>Every tile you place must fit every line it touches — across and down.</li>
+      </ul>
+
+      <h2 id="turn">Taking a turn</h2>
+      <ul>
+        <li><strong>Setup:</strong> everyone draws six tiles from the bag and keeps them hidden.</li>
+        <li><strong>First turn:</strong> the player who can play the most tiles sharing one color or one shape (no duplicates) goes first, and scores them.</li>
+        <li><strong>Play:</strong> place one or more tiles, all in a single line. They must connect to the tiles already on the table, but needn't touch each other — as long as the finished line has no gaps.</li>
+        <li><strong>Or trade:</strong> instead of playing, put any number of tiles back in the bag and draw replacements. That's your whole turn, and you score nothing.</li>
+        <li>After playing, draw back up to six.</li>
+      </ul>
+
+      <h2 id="scoring">How scoring works</h2>
+      <table class="score-table">
+        <thead><tr><th>Scores</th><th>Points</th></tr></thead>
+        <tbody>
+          <tr><td>Each line you create or add to<span class="note">Count every tile in the line, including the ones already there.</span></td><td class="v">1 per tile</td></tr>
+          <tr><td>A tile in two lines<span class="note">A tile that extends a line across and a line down scores both.</span></td><td class="v">both lines</td></tr>
+          <tr><td>Qwirkle<span class="note">Completing a line of all six: 6 for the tiles plus a 6-point bonus.</span></td><td class="v">12</td></tr>
+          <tr><td>Going out<span class="note">Playing your last tile once the bag is empty.</span></td><td class="v">+6</td></tr>
+        </tbody>
+      </table>
+      <div class="example">
+        <h3>Example: 17 points in one turn</h3>
+        <div class="qgrid">
+          {qrow([None, None, ("clover", 0), None, None, ("diamond", 0)])}
+          {qrow([("circle", 4), ("square", 4), ("clover", 4, True), ("starburst", 4), ("star", 4), ("diamond", 4, True)])}
+          {qrow([None, None, None, None, None, ("diamond", 3)])}
+        </div>
+        <p>The two outlined blue tiles were just played into the blue row. That completes all six blue shapes: a Qwirkle, <strong>12</strong>. The blue clover also makes a two-tile clover column (<strong>2</strong>), and the blue diamond completes a three-tile diamond column (<strong>3</strong>). Total: <strong>17</strong>.</p>
+      </div>
+
+      <h2 id="end">How it ends</h2>
+      <p>Once the bag is empty, players carry on without drawing. The first player to play their last tile ends the game and scores 6 bonus points on top of that turn. Highest total wins.</p>
+
+      <h2>Quick answers</h2>
+      <h3>Is a Qwirkle 6 or 12 points?</h3>
+      <p>12 — six for the tiles in the line plus a six-point bonus.</p>
+      <h3>Can you play tiles in two directions in one turn?</h3>
+      <p>No. Everything you place in a turn goes in one line, though each tile also scores any line it crosses.</p>
+''' + callout("Quick-add for the big turns.",
+  "Tap +12 for a Qwirkle, +5, +1 — most turns are a couple of taps — and Tallero adds the going-out bonus when the last tile is played.") + '''
+      <p class="small" style="margin-top:18px;color:var(--txt-3)">Qwirkle® is a trademark of its owner. Tallero is independent and not affiliated with or endorsed by the maker of Qwirkle.</p>
+    </div>
+  </div>
+</section>
+''' + sheet("Qwirkle score sheet", "Points each turn and the running total. Highest wins.", "+,Total", 25, 2, 4, 2)
+
+page("/rules/qwirkle/", "Qwirkle Rules & Scoring — How to Score a Qwirkle — Tallero",
+     "How to play Qwirkle: building lines by color or shape, taking a turn, trading tiles, scoring every line, the 12-point Qwirkle, the going-out bonus, and a printable score sheet.",
+     [("Game rules", "/rules/"), ("Qwirkle", "/rules/qwirkle/")], qw)
+
 # ------------------------------------------------------------------ HUB
 def card(key, tile, name, blurb, path):
     return f'''      <a class="rules-card" href="{path}">
@@ -994,11 +1234,14 @@ hub = '''
     card("euchre", "oklch(0.928 0.045 150)", "Euchre", "The bowers, ordering up, going alone, and how every hand scores.", "/rules/euchre/"),
     card("ginrummy", "oklch(0.928 0.045 194)", "Gin Rummy", "Deadwood, knocking, laying off, and scoring gin, big gin and undercuts.", "/rules/gin-rummy/"),
     card("molkky", "oklch(0.928 0.045 293)", "Mölkky", "The pin setup, how throws score, exactly 50, and the three-miss rule.", "/rules/molkky/"),
+    card("cornhole", "oklch(0.928 0.045 150)", "Cornhole", "Cancellation scoring, dead bags, board setup, and winning at 21.", "/rules/cornhole/"),
+    card("golf_cards", "oklch(0.928 0.045 150)", "Golf (Cards)", "Six-card Golf: card values, cancelling pairs, and the other layouts.", "/rules/golf/"),
+    card("qwirkle", "oklch(0.928 0.045 255)", "Qwirkle", "Building lines, scoring every turn, and the 12-point Qwirkle.", "/rules/qwirkle/"),
 ]) + '''
     </div>
   </div>
 </section>
 '''
 page("/rules/", "Game Rules & Scoring — Tallero",
-     "Rules and scoring guides for Farkle, Cribbage, Phase 10, Yahtzee, Spades, Hearts, Euchre, Gin Rummy and Mölkky, with printable score sheets — from Tallero, the score-keeper for game night.",
+     "Rules and scoring guides for Farkle, Cribbage, Phase 10, Yahtzee, Spades, Hearts, Euchre, Gin Rummy, Mölkky, Cornhole, Golf and Qwirkle, with printable score sheets — from Tallero, the score-keeper for game night.",
      [("Game rules", "/rules/")], hub)

@@ -656,3 +656,15 @@ body.beta-live .hero__actions .appstore--soon {
 .pins__row { display: flex; gap: 6px; }
 .pin { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: #F3E6CC; border: 1.5px solid #C9A86A; font-family: var(--display); font-weight: 700; font-size: 15px; color: var(--ink); }
 .pins__line { margin-top: 10px; padding-top: 8px; border-top: 2px dashed var(--txt-3); width: 70%; text-align: center; font-size: 13px; color: var(--txt-3); }
+
+/* Golf layout + Qwirkle tiles */
+.card.down { background: repeating-linear-gradient(45deg, #2B5C9E 0 4px, #3A6DB2 4px 8px); border-color: #2B5C9E; }
+.card-grid { display: inline-flex; flex-direction: column; gap: 4px; margin: 4px 0 10px; }
+.card-grid > div { display: flex; gap: 2px; }
+.card-grid .card { font-size: 18px; }
+.qgrid { display: inline-flex; flex-direction: column; gap: 3px; margin: 4px 0 10px; }
+.qgrid > div { display: flex; gap: 3px; }
+.qt { width: 34px; height: 34px; border-radius: 6px; background: #1E2228; display: grid; place-items: center; font-size: 20px; line-height: 1; }
+.qt.placed { outline: 3px solid var(--gold); outline-offset: -1px; }
+.qt.empty { background: transparent; }
+@media (max-width: 400px) { .qt { width: 28px; height: 28px; font-size: 17px; } }
