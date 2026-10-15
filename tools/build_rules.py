@@ -1677,33 +1677,56 @@ hub = '''
 
 <section class="section section--tight">
   <div class="wrap">
+    <div class="prose"><ul class="toc">
+      <li><a href="#cards">Card games</a></li>
+      <li><a href="#dice">Dice games</a></li>
+      <li><a href="#tiles">Tile games</a></li>
+      <li><a href="#outdoor">Outdoor games</a></li>
+      <li><a href="#tools">Also in Tallero</a></li>
+    </ul></div>
+    <h2 class="faq-group" id="cards" style="margin:0px 0 16px;scroll-margin-top:96px">Card games</h2>
+    <div class="rules-grid">
+''' + "\n".join([
+    card("cribbage", "oklch(0.928 0.045 78)", "Cribbage", "The deal, pegging, and how to count a hand — with worked examples and the 29 hand.", "/rules/cribbage/"),
+    card("dutchblitz", "oklch(0.928 0.045 78)", "Dutch Blitz", "Your piles, the boy-girl rule, calling Blitz, and +1 / −2 scoring.", "/rules/dutch-blitz/"),
+    card("euchre", "oklch(0.928 0.045 150)", "Euchre", "The bowers, ordering up, going alone, and how every hand scores.", "/rules/euchre/"),
+    card("flip7", "oklch(0.928 0.045 78)", "Flip 7", "Hit or stay, action cards, and the order to add up a round.", "/rules/flip-7/"),
+    card("ginrummy", "oklch(0.928 0.045 194)", "Gin Rummy", "Deadwood, knocking, laying off, and scoring gin, big gin and undercuts.", "/rules/gin-rummy/"),
+    card("golf_cards", "oklch(0.928 0.045 150)", "Golf (Cards)", "Six-card Golf: card values, cancelling pairs, and the other layouts.", "/rules/golf/"),
+    card("hearts", "oklch(0.928 0.045 357)", "Hearts", "Passing, the Queen of Spades, and how shooting the moon works.", "/rules/hearts/"),
+    card("phase10", "oklch(0.928 0.045 255)", "Phase 10", "All ten phases, Wilds and Skips, and how penalty points break a tie.", "/rules/phase-10/"),
+    card("rummy", "oklch(0.928 0.045 78)", "Rummy", "Basic Rummy and Rummy 500: melds, laying off, and scoring a hand.", "/rules/rummy/"),
+    card("spades", "oklch(0.928 0.045 194)", "Spades", "Bidding, breaking spades, and how bids, bags and nil are scored.", "/rules/spades/"),
+]) + '''
+    </div>
+    <h2 class="faq-group" id="dice" style="margin:48px 0 16px;scroll-margin-top:96px">Dice games</h2>
     <div class="rules-grid">
 ''' + "\n".join([
     card("farkle", "oklch(0.928 0.045 357)", "Farkle", "The full scoring chart, hot dice, the final lap, and the variants tables argue about.", "/rules/farkle/"),
-    card("cribbage", "oklch(0.928 0.045 78)", "Cribbage", "The deal, pegging, and how to count a hand — with worked examples and the 29 hand.", "/rules/cribbage/"),
-    card("phase10", "oklch(0.928 0.045 255)", "Phase 10", "All ten phases, Wilds and Skips, and how penalty points break a tie.", "/rules/phase-10/"),
     card("yahtzee", "oklch(0.928 0.045 293)", "Yahtzee", "Every box on the card, the 63-point bonus, bonus Yahtzees and the Joker rules.", "/rules/yahtzee/"),
-    card("spades", "oklch(0.928 0.045 194)", "Spades", "Bidding, breaking spades, and how bids, bags and nil are scored.", "/rules/spades/"),
-    card("hearts", "oklch(0.928 0.045 357)", "Hearts", "Passing, the Queen of Spades, and how shooting the moon works.", "/rules/hearts/"),
-    card("euchre", "oklch(0.928 0.045 150)", "Euchre", "The bowers, ordering up, going alone, and how every hand scores.", "/rules/euchre/"),
-    card("ginrummy", "oklch(0.928 0.045 194)", "Gin Rummy", "Deadwood, knocking, laying off, and scoring gin, big gin and undercuts.", "/rules/gin-rummy/"),
-    card("molkky", "oklch(0.928 0.045 293)", "Mölkky", "The pin setup, how throws score, exactly 50, and the three-miss rule.", "/rules/molkky/"),
-    card("cornhole", "oklch(0.928 0.045 150)", "Cornhole", "Cancellation scoring, dead bags, board setup, and winning at 21.", "/rules/cornhole/"),
-    card("golf_cards", "oklch(0.928 0.045 150)", "Golf (Cards)", "Six-card Golf: card values, cancelling pairs, and the other layouts.", "/rules/golf/"),
-    card("qwirkle", "oklch(0.928 0.045 255)", "Qwirkle", "Building lines, scoring every turn, and the 12-point Qwirkle.", "/rules/qwirkle/"),
-    card("rummy", "oklch(0.928 0.045 78)", "Rummy", "Basic Rummy and Rummy 500: melds, laying off, and scoring a hand.", "/rules/rummy/"),
-    card("dominoes", "oklch(0.928 0.045 194)", "Dominoes", "All Fives scoring with the spinner, plus Block and Draw.", "/rules/dominoes/"),
-    card("dutchblitz", "oklch(0.928 0.045 78)", "Dutch Blitz", "Your piles, the boy-girl rule, calling Blitz, and +1 / −2 scoring.", "/rules/dutch-blitz/"),
-    card("flip7", "oklch(0.928 0.045 78)", "Flip 7", "Hit or stay, action cards, and the order to add up a round.", "/rules/flip-7/"),
-    card("minigolf", "oklch(0.928 0.045 150)", "Mini Golf", "Strokes, par, birdies and bogeys, and an 18-hole scorecard.", "/rules/mini-golf/"),
 ]) + '''
     </div>
-    <h2 class="faq-group" style="margin:48px 0 16px">Also in Tallero</h2>
+    <h2 class="faq-group" id="tiles" style="margin:48px 0 16px;scroll-margin-top:96px">Tile games</h2>
     <div class="rules-grid">
 ''' + "\n".join([
+    card("dominoes", "oklch(0.928 0.045 194)", "Dominoes", "All Fives scoring with the spinner, plus Block and Draw.", "/rules/dominoes/"),
+    card("qwirkle", "oklch(0.928 0.045 255)", "Qwirkle", "Building lines, scoring every turn, and the 12-point Qwirkle.", "/rules/qwirkle/"),
+]) + '''
+    </div>
+    <h2 class="faq-group" id="outdoor" style="margin:48px 0 16px;scroll-margin-top:96px">Outdoor games</h2>
+    <div class="rules-grid">
+''' + "\n".join([
+    card("cornhole", "oklch(0.928 0.045 150)", "Cornhole", "Cancellation scoring, dead bags, board setup, and winning at 21.", "/rules/cornhole/"),
+    card("minigolf", "oklch(0.928 0.045 150)", "Mini Golf", "Strokes, par, birdies and bogeys, and an 18-hole scorecard.", "/rules/mini-golf/"),
+    card("molkky", "oklch(0.928 0.045 293)", "Mölkky", "The pin setup, how throws score, exactly 50, and the three-miss rule.", "/rules/molkky/"),
+]) + '''
+    </div>
+    <h2 class="faq-group" id="tools" style="margin:48px 0 16px;scroll-margin-top:96px">Also in Tallero</h2>
+    <div class="rules-grid">
+''' + "\n".join([
+    card("custom", "oklch(0.928 0.045 255)", "Custom", "Score any game your way, then save it as its own tile.", "/rules/custom/", "How it works →"),
     card("score", "oklch(0.928 0.045 78)", "Quick Score", "A tap-to-count score counter for any game, plus a blank score sheet.", "/rules/quick-score/", "How it works →"),
     card("timer", "oklch(0.928 0.045 293)", "Quick Timer", "A countdown timer for turn limits and party games.", "/rules/quick-timer/", "How it works →"),
-    card("custom", "oklch(0.928 0.045 255)", "Custom", "Score any game your way, then save it as its own tile.", "/rules/custom/", "How it works →"),
 ]) + '''
     </div>
   </div>
