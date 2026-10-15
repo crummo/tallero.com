@@ -596,13 +596,13 @@ sp = hero("Spades", "spades", "oklch(0.928 0.045 194)", "Spades rules and scorin
         <tbody>
           <tr><td>Make your contract<span class="note">Take at least the team's combined bid.</span></td><td class="v">bid × 10</td></tr>
           <tr><td>Each extra trick (a “bag”)</td><td class="v">+1</td></tr>
-          <tr><td>Miss your contract<span class="note">Many tables deduct the bid instead: −bid × 10.</span></td><td class="v">0</td></tr>
+          <tr><td>Miss your contract<span class="note">Some tables score a plain 0 instead.</span></td><td class="v">−bid × 10</td></tr>
           <tr><td>Nil made<span class="note">Bid nil and take no tricks at all.</span></td><td class="v">+100</td></tr>
           <tr><td>Nil broken<span class="note">Take even one trick.</span></td><td class="v">−100</td></tr>
           <tr><td>Blind nil<span class="note">Declared before looking at your cards.</span></td><td class="v">±200</td></tr>
         </tbody>
       </table>
-      <p>The hand is scored against your bid, not against the other team: 9 tricks on a bid of 10 scores nothing, while 3 on a bid of 3 scores 30.</p>
+      <p>The hand is scored against your bid, not against the other team: 9 tricks on a bid of 10 costs you 100, while 3 on a bid of 3 scores 30.</p>
       <h3>Bags and sandbagging</h3>
       <p>Extra tricks are worth only 1 point each, but at most tables they also pile up: every time a team's running total of bags reaches 10, it loses 100 points. That's what stops a team from bidding low and hoovering up tricks.</p>
 
@@ -612,7 +612,7 @@ sp = hero("Spades", "spades", "oklch(0.928 0.045 194)", "Spades rules and scorin
         <h3>Example: a broken nil</h3>
         <p>Cass bids nil and takes a trick: <strong>−100</strong>. Dee bids 4 and takes 4: the contract is made for <strong>40</strong>, and Cass's trick adds a bag, <strong>+1</strong>. The team still finishes the hand on <strong>−59</strong>.</p>
       </div>
-      <p>Blind nil is the same bid made before looking at your hand, for double. Many tables only allow it to a team that's 100 or more behind, and some let the blind-nil bidder swap two cards with their partner.</p>
+      <p>Blind nil is the same bid made before looking at your hand, for double. Usually it's only allowed to a team that's 100 or more behind, and the bidder then swaps two cards face down with their partner.</p>
 
       <h2>How it ends</h2>
       <p>The first team past 500 wins. If both get there in the same hand, the higher total takes it. 200 or 300 makes a shorter game.</p>
@@ -693,7 +693,7 @@ ht = hero("Hearts", "hearts", "oklch(0.928 0.045 357)", "Hearts rules and scorin
       <h2>Common variants</h2>
       <ul>
         <li><strong>Omnibus:</strong> the Jack of Diamonds {R("J♦")} is worth −10 to whoever takes it, so a hand totals 16. It isn't part of shooting the moon.</li>
-        <li><strong>Shorter or longer games:</strong> play to 50 for a quick game, or to 150.</li>
+        <li><strong>Shorter game:</strong> some groups play to 50 instead of 100.</li>
       </ul>
 
       <h2 id="counts">Playing with other counts</h2>
@@ -706,11 +706,11 @@ ht = hero("Hearts", "hearts", "oklch(0.928 0.045 357)", "Hearts rules and scorin
           <tr><td>Six players</td><td class="v">8 cards each</td></tr>
         </tbody>
       </table>
-      <p>Which cards come out, whoever leads first, and how passing rotates all vary by group — agree them before you start.</p>
+      <p>With three players the 2♦ usually comes out, and with five the 2♣ (so the 3♣ leads). There's no standard six-player deal; dropping four low cards to deal 8 each is one way to do it. Agree which cards come out and how passing rotates before you start.</p>
 
       <h2>Quick answers</h2>
       <h3>Can you lead the Queen of Spades before hearts are broken?</h3>
-      <p>Yes. Only hearts need breaking, and the Queen is a spade, so it can be led on any trick after the first. Some tables add a house rule that playing the Queen also breaks hearts.</p>
+      <p>Yes. Only hearts need breaking, and the Queen is a spade, so it can be led on any trick after the first. Rule sets differ on one point: Bicycle's printed rules also count the Queen, discarded on another suit, as breaking hearts; Pagat's standard rules count only a heart.</p>
       <h3>Can you play a heart on the first trick?</h3>
       <p>No — not even if you're out of clubs. The only exception is a hand of nothing but hearts and the Queen.</p>
       <h3>Do you have to pass every hand?</h3>
