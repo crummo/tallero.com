@@ -1534,13 +1534,135 @@ page("/rules/mini-golf/", "Mini Golf Scoring — How to Keep Score & Printable S
      "How to keep score in mini golf: strokes, par, birdies, bogeys and holes in one, common course rules like stroke limits, and a printable 18-hole mini golf scorecard.",
      [("Game rules", "/rules/"), ("Mini Golf", "/rules/mini-golf/")], mg)
 
+# ------------------------------------------------------------------ QUICK SCORE
+qs = hero("Quick Score", "score", "oklch(0.928 0.045 78)", "Quick Score: a score counter for any game",
+  "Tap to count, hold to subtract, set a target if you're racing to one. For the games Tallero doesn't have built in — or the ones you're making up as you go.") + '''
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="prose">
+      <p class="gist">Quick Score is the fastest way to keep score in Tallero: one tap from the home screen, no setup, no rules. Each player gets a tile, and every tap adds a point.</p>
+
+      <h2>How it works</h2>
+      <table class="score-table">
+        <thead><tr><th>Do this</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>Tap a player's tile</td><td class="v">+1</td></tr>
+          <tr><td>Tap +5 or +10</td><td class="v">+5 / +10</td></tr>
+          <tr><td>Press and hold the tile, +5 or +10</td><td class="v">subtract</td></tr>
+          <tr><td>Swipe a tile down</td><td class="v">−1</td></tr>
+        </tbody>
+      </table>
+      <ul>
+        <li><strong>+ Player</strong> adds as many players as you need, and tapping a name renames it.</li>
+        <li><strong>Racing to a number?</strong> Set a target and the first player past it wins automatically.</li>
+        <li>Tapped the wrong player? Hold their tile to take the point back off.</li>
+      </ul>
+
+      <h2>When to use it</h2>
+      <ul>
+        <li>A game Tallero doesn't have a built-in scorer for.</li>
+        <li>A game you're inventing as you go.</li>
+        <li>Anything where you just need a tally: points in a backyard game, rounds won, who's buying the next round.</li>
+      </ul>
+      <p>Want the same setup every week, with a target and high- or low-wins? Use <a href="/rules/custom/">Custom</a> instead and save it as its own tile.</p>
+''' + callout("One tap from the home screen.",
+  "Quick Score sits at the top of Tallero's home screen — open it and start counting.") + '''
+    </div>
+  </div>
+</section>
+''' + sheet("Score sheet", "A blank tally sheet for any game: points each round and the running total.", "+,Total", 20, 2, 8, 4)
+
+page("/rules/quick-score/", "Quick Score — A Simple Score Counter for Any Game — Tallero",
+     "Tallero's Quick Score is a tap-to-count score counter for any game: tap to add, hold to subtract, add players, and set a target. Plus a printable blank score sheet.",
+     [("Game rules", "/rules/"), ("Quick Score", "/rules/quick-score/")], qs)
+
+# ------------------------------------------------------------------ QUICK TIMER
+qtm = hero("Quick Timer", "timer", "oklch(0.928 0.045 293)", "Quick Timer: a countdown timer for game night",
+  "Turn limits, drawing rounds, sand-timer games — a big, simple countdown that's one tap from the home screen.") + '''
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="prose">
+      <p class="gist">Quick Timer is a countdown timer built for the table: big ring, big buttons, and a chime when time's up.</p>
+
+      <h2>How it works</h2>
+      <ul>
+        <li><strong>Pick a time:</strong> tap a preset — 30, 60, 90 or 120 seconds — or type any number of seconds.</li>
+        <li><strong>Or drag the ring</strong> to set the time directly.</li>
+        <li><strong>Start</strong> it with the button, or tap the ring to start and pause.</li>
+        <li><strong>Need more time?</strong> Add 30 seconds or a minute while it's running.</li>
+        <li>When it runs out you'll hear a chime and see <strong>Time's up!</strong> — then Reset to go again.</li>
+        <li>It keeps accurate time even if your phone locks mid-countdown.</li>
+      </ul>
+
+      <h2>Good for</h2>
+      <ul>
+        <li>Turn limits for players who take too long.</li>
+        <li>Drawing and guessing games like Pictionary or charades.</li>
+        <li>Any game that came with a sand timer you can't find.</li>
+      </ul>
+''' + callout("Always one tap away.",
+  "Quick Timer sits next to Quick Score on Tallero's home screen.") + '''
+    </div>
+  </div>
+</section>
+'''
+
+page("/rules/quick-timer/", "Quick Timer — A Countdown Timer for Game Night — Tallero",
+     "Tallero's Quick Timer is a countdown timer for board and party games: 30 to 120 second presets or any time you like, drag-to-set, add time mid-turn, and a chime when time's up.",
+     [("Game rules", "/rules/"), ("Quick Timer", "/rules/quick-timer/")], qtm)
+
+# ------------------------------------------------------------------ CUSTOM
+cu = hero("Custom", "custom", "oklch(0.928 0.045 255)", "Custom: score any game your way",
+  "Set up players, a target and how the game is won — then save it as its own tile for next time.") + '''
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="prose">
+      <p class="gist">Custom is for any game Tallero doesn't have built in. You choose how it's scored and how it's won, and Tallero keeps the totals, crowns the winner and keeps the stats — just like a built-in game.</p>
+
+      <h2>Setting it up</h2>
+      <table class="score-table">
+        <thead><tr><th>Option</th><th>Choices</th></tr></thead>
+        <tbody>
+          <tr><td>Scoring mode<span class="note">Enter everyone's score each round, or one player at a time as turns come round.</span></td><td class="v">Round / Turn</td></tr>
+          <tr><td>Target score<span class="note">0 means no target — just play rounds.</span></td><td class="v">any number</td></tr>
+          <tr><td>Max rounds<span class="note">0 means play freely.</span></td><td class="v">any number</td></tr>
+          <tr><td>Negative entries<span class="note">Allow penalties that subtract points.</span></td><td class="v">on / off</td></tr>
+        </tbody>
+      </table>
+
+      <h2>How the game is won</h2>
+      <table class="score-table">
+        <tbody>
+          <tr><td><strong>Race</strong><span class="note">First to the target wins.</span></td><td class="v"></td></tr>
+          <tr><td><strong>Exact</strong><span class="note">Hit the target exactly; go over and you bust back — to half, to zero, or the throw simply doesn't count.</span></td><td class="v"></td></tr>
+          <tr><td><strong>Avoid</strong><span class="note">First to the target is out, and the lowest score wins.</span></td><td class="v"></td></tr>
+        </tbody>
+      </table>
+      <p>With no target, the game runs for your set number of rounds, and you choose whether the highest or lowest total wins.</p>
+
+      <h2>Save it for next time</h2>
+      <p>Save a Custom setup and it becomes its own tile on the home screen, so your house-rules game is one tap away next week.</p>
+
+      <h2>Custom or Quick Score?</h2>
+      <p><a href="/rules/quick-score/">Quick Score</a> is a blank tap counter for when you just need a tally. Custom is for when the game has a target, a way to win, or rounds you want tracked — and when you want it in your stats.</p>
+''' + callout("Any game, your rules.",
+  "Set it up once, save it as a tile, and Tallero scores it like it was built in.") + '''
+    </div>
+  </div>
+</section>
+''' + sheet("Score sheet", "A blank score sheet for any game: points each round and the running total.", "+,Total", 20, 2, 8, 4)
+
+page("/rules/custom/", "Custom Score — Keep Score for Any Game — Tallero",
+     "Tallero's Custom mode scores any game: choose round or turn scoring, a target, race, exact-hit or avoid-the-target endings, then save it as its own tile. Plus a printable blank score sheet.",
+     [("Game rules", "/rules/"), ("Custom", "/rules/custom/")], cu)
+
 # ------------------------------------------------------------------ HUB
-def card(key, tile, name, blurb, path):
+def card(key, tile, name, blurb, path, cta="Read the rules →"):
     return f'''      <a class="rules-card" href="{path}">
         <div class="tile" style="background:{tile}"><img src="/assets/games/{key}.svg" alt=""/></div>
         <h2>{name}</h2>
         <p>{blurb}</p>
-        <span class="link">Read the rules →</span>
+        <span class="link">{cta}</span>
       </a>'''
 
 hub = '''
@@ -1574,6 +1696,14 @@ hub = '''
     card("dutchblitz", "oklch(0.928 0.045 78)", "Dutch Blitz", "Your piles, the boy-girl rule, calling Blitz, and +1 / −2 scoring.", "/rules/dutch-blitz/"),
     card("flip7", "oklch(0.928 0.045 78)", "Flip 7", "Hit or stay, action cards, and the order to add up a round.", "/rules/flip-7/"),
     card("minigolf", "oklch(0.928 0.045 150)", "Mini Golf", "Strokes, par, birdies and bogeys, and an 18-hole scorecard.", "/rules/mini-golf/"),
+]) + '''
+    </div>
+    <h2 class="faq-group" style="margin:48px 0 16px">Also in Tallero</h2>
+    <div class="rules-grid">
+''' + "\n".join([
+    card("score", "oklch(0.928 0.045 78)", "Quick Score", "A tap-to-count score counter for any game, plus a blank score sheet.", "/rules/quick-score/", "How it works →"),
+    card("timer", "oklch(0.928 0.045 293)", "Quick Timer", "A countdown timer for turn limits and party games.", "/rules/quick-timer/", "How it works →"),
+    card("custom", "oklch(0.928 0.045 255)", "Custom", "Score any game your way, then save it as its own tile.", "/rules/custom/", "How it works →"),
 ]) + '''
     </div>
   </div>
