@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Spades Rules & Scoring — Bids, Bags & Nil — Tallero</title>
+<meta name="description" content="How to play Spades: bidding, trump and breaking spades, how bids, bags, sandbagging and nil are scored, rules for 2, 3 and 6 players, and a printable score sheet."/>
+<link rel="canonical" href="https://gettallero.com/rules/spades/"/>
+<link rel="icon" href="/assets/icon-app.svg"/>
+<meta name="apple-itunes-app" content="app-id=6781403658"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://gettallero.com/rules/spades/"/>
+<meta property="og:title" content="Spades Rules & Scoring — Bids, Bags & Nil — Tallero"/>
+<meta property="og:description" content="How to play Spades: bidding, trump and breaking spades, how bids, bags, sandbagging and nil are scored, rules for 2, 3 and 6 players, and a printable score sheet."/>
+<meta property="og:image" content="https://gettallero.com/assets/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://gettallero.com/assets/og-image.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/tally.css"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Game rules", "item": "https://gettallero.com/rules/"}, {"@type": "ListItem", "position": 2, "name": "Spades", "item": "https://gettallero.com/rules/spades/"}]}</script>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="lockup" href="/" aria-label="Tallero home">
+      <svg class="mark" viewBox="0 0 100 100" fill="none" style="color:var(--ink)" aria-hidden="true">
+        <rect x="13.64" y="13.64" width="11.36" height="72.73" rx="3" fill="#9b7af0"/>
+        <rect x="34.09" y="13.64" width="11.36" height="72.73" rx="3" fill="#e0457b"/>
+        <rect x="54.55" y="13.64" width="11.36" height="72.73" rx="3" fill="#2baa6b"/>
+        <rect x="75" y="13.64" width="11.36" height="72.73" rx="3" fill="#2bafa6"/>
+        <rect x="1.5" y="44" width="97" height="12" rx="3" transform="rotate(-18 50 50)" fill="currentColor"/>
+      </svg>
+      <span class="wordmark">Tallero</span>
+    </a>
+    <nav class="site-nav" id="siteNav">
+      <a href="/#features">Features</a>
+      <a href="/#games">Games</a>
+      <a href="/rules/" style="color:var(--blue)">Rules</a>
+      <a href="/support.html">Support</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="site-header__cta">
+      <a class="btn btn--ghost" href="/">Back to home</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/rules/">Game rules</a> / Spades</nav>
+    <div class="rules-hero__row">
+      <div class="tile" style="background:oklch(0.928 0.045 194)"><img src="/assets/games/spades.svg" alt=""/></div>
+      <h1>Spades rules and scoring</h1>
+    </div>
+    <p>Bidding, how tricks are won, how bids, bags and nil are scored, and how to play with two, three or six — plus a printable score sheet.</p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="prose">
+      <ul class="toc">
+        <li><a href="#bidding">Bidding</a></li>
+        <li><a href="#tricks">Playing tricks</a></li>
+        <li><a href="#scoring">Scoring</a></li>
+        <li><a href="#nil">Nil</a></li>
+        <li><a href="#counts">Other player counts</a></li>
+        <li><a href="#score-sheet">Score sheet</a></li>
+      </ul>
+
+      <p class="gist">Four players in two teams of two, partners sitting opposite. Each hand, everyone bids how many tricks they'll take, and each team tries to take at least its combined bid. Make it and you score the bid × 10, plus 1 for every extra trick. Spades are always trump. First team past 500 wins.</p>
+
+      <h2 id="bidding">Dealing and bidding</h2>
+      <ul>
+        <li>Deal the whole deck one card at a time, clockwise: 13 cards each, so every hand is 13 tricks.</li>
+        <li>Starting left of the dealer and going once round, each player looks at their cards and bids the number of tricks they expect to win. You don't have to bid higher than the player before you.</li>
+        <li>Partners' bids are added together into the team's contract. <strong>You don't need to hit your own number — only the team's total.</strong></li>
+        <li>Bids are called aloud in turn, so a partner who bids second knows the first bid. Partners can't discuss their hands.</li>
+      </ul>
+      <div class="example">
+        <h3>Example: making the contract</h3>
+        <p>Ann bids 4 and takes 2. Ben bids 3 and takes 6. Neither hit their own number, but together they bid 7 and took 8 — contract made. The team scores <strong>71</strong>: 70 for the bid, plus 1 for the extra trick.</p>
+      </div>
+
+      <h2 id="tricks">Playing the tricks</h2>
+      <ul>
+        <li>The player left of the dealer leads the first trick; after that, whoever won the last trick leads.</li>
+        <li>You must follow the suit led if you can. If you can't, you may play anything — including a spade.</li>
+        <li>The highest spade takes the trick. If no spade was played, the highest card of the suit led takes it.</li>
+        <li>Spades can't be led until they're <strong>broken</strong> — until someone has played a spade on another suit because they couldn't follow. The exception: a player holding nothing but spades.</li>
+        <li>You can't trump a suit you're able to follow, even if someone before you already has.</li>
+      </ul>
+      <div class="example">
+        <h3>Example trick</h3>
+        <p>Clubs led: <span class="card" role="img" aria-label="A♣"><b>A</b><i>♣</i></span> <span class="card" role="img" aria-label="7♣"><b>7</b><i>♣</i></span> <span class="card" role="img" aria-label="2♠"><b>2</b><i>♠</i></span> <span class="card" role="img" aria-label="K♣"><b>K</b><i>♣</i></span>. The <strong>2♠ wins</strong> — the lowest spade beats the highest club. It could only be played by someone with no clubs left.</p>
+      </div>
+
+      <h2 id="scoring">How scoring works</h2>
+      <table class="score-table">
+        <thead><tr><th>Result</th><th>Points</th></tr></thead>
+        <tbody>
+          <tr><td>Make your contract<span class="note">Take at least the team's combined bid.</span></td><td class="v">bid × 10</td></tr>
+          <tr><td>Each extra trick (a “bag”)</td><td class="v">+1</td></tr>
+          <tr><td>Miss your contract<span class="note">Many tables deduct the bid instead: −bid × 10.</span></td><td class="v">0</td></tr>
+          <tr><td>Nil made<span class="note">Bid nil and take no tricks at all.</span></td><td class="v">+100</td></tr>
+          <tr><td>Nil broken<span class="note">Take even one trick.</span></td><td class="v">−100</td></tr>
+          <tr><td>Blind nil<span class="note">Declared before looking at your cards.</span></td><td class="v">±200</td></tr>
+        </tbody>
+      </table>
+      <p>The hand is scored against your bid, not against the other team: 9 tricks on a bid of 10 scores nothing, while 3 on a bid of 3 scores 30.</p>
+      <h3>Bags and sandbagging</h3>
+      <p>Extra tricks are worth only 1 point each, but at most tables they also pile up: every time a team's running total of bags reaches 10, it loses 100 points. That's what stops a team from bidding low and hoovering up tricks.</p>
+
+      <h2 id="nil">Bidding nil</h2>
+      <p>A nil bid says you'll take no tricks at all. It's scored on its own — even in a partnership — and isn't added to the team's contract: your partner has to make their own bid alone. Any trick the nil bidder does take still counts as a bag for the team, but can't help fill the partner's bid.</p>
+      <div class="example">
+        <h3>Example: a broken nil</h3>
+        <p>Cass bids nil and takes a trick: <strong>−100</strong>. Dee bids 4 and takes 4: the contract is made for <strong>40</strong>, and Cass's trick adds a bag, <strong>+1</strong>. The team still finishes the hand on <strong>−59</strong>.</p>
+      </div>
+      <p>Blind nil is the same bid made before looking at your hand, for double. Many tables only allow it to a team that's 100 or more behind, and some let the blind-nil bidder swap two cards with their partner.</p>
+
+      <h2>How it ends</h2>
+      <p>The first team past 500 wins. If both get there in the same hand, the higher total takes it. 200 or 300 makes a shorter game.</p>
+
+      <h2 id="counts">Playing with other counts</h2>
+      <ul>
+        <li><strong>Two players:</strong> don't deal. Take turns drawing: look at the top card and either keep it and discard the next face down, or discard it and keep the next. Carry on until you each hold 13.</li>
+        <li><strong>Three players:</strong> deal 17 each and set the last card aside, so a hand is 17 tricks. Everyone plays for themselves.</li>
+        <li><strong>Six players:</strong> shuffle two decks together with two low cards removed. Traditionally three teams of two.</li>
+        <li><strong>Cutthroat:</strong> four players with no partners, each bidding and scoring alone.</li>
+      </ul>
+
+      <div class="callout">
+        <div>
+          <h2>Bids, bags and nils, added up for you.</h2>
+          <p>Lock in bids, enter tricks, and Tallero scores the contract, the bags and any nil — and checks the tricks add up to 13.</p>
+        </div>
+        <a class="appstore-badge" href="https://apps.apple.com/app/id6781403658" target="_blank" rel="noopener" aria-label="Download Tallero on the App Store"><img src="/assets/appstore-badge.svg" alt="Download on the App Store"/></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCORE SHEET ============
+     A direct child of <body> on purpose: the print CSS hides every other
+     body child while body.print-sheet is on (see rules/rules.js). -->
+<section class="sheet" id="sheet" data-title="Spades score sheet" data-cols="Bid,Took,Score" data-rows="16" data-min="2" data-max="4" data-default="2" data-unit="teams">
+  <div class="wrap">
+    <div class="sheet__head">
+      <div>
+        <h2 id="score-sheet">Printable score sheet</h2>
+        <p>Bid, tricks taken and running score for each team, hand by hand.</p>
+      </div>
+      <div class="sheet__controls">
+        <label for="sheetPlayers">Teams</label>
+        <select id="sheetPlayers"></select>
+        <button class="btn btn--primary" type="button" data-print>Print</button>
+      </div>
+    </div>
+    <div class="sheet__title"></div>
+    <div class="sheet__scroll"></div>
+    <p class="sheet__foot">gettallero.com — or skip the pencil and let Tallero keep score.</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="lockup" href="/" aria-label="Tallero home">
+          <svg class="mark" viewBox="0 0 100 100" fill="none" style="color:#fff" aria-hidden="true">
+            <rect x="13.64" y="13.64" width="11.36" height="72.73" rx="3" fill="#9b7af0"/>
+            <rect x="34.09" y="13.64" width="11.36" height="72.73" rx="3" fill="#e0457b"/>
+            <rect x="54.55" y="13.64" width="11.36" height="72.73" rx="3" fill="#2baa6b"/>
+            <rect x="75" y="13.64" width="11.36" height="72.73" rx="3" fill="#2bafa6"/>
+            <rect x="1.5" y="44" width="97" height="12" rx="3" transform="rotate(-18 50 50)" fill="currentColor"/>
+          </svg>
+          <span class="wordmark">Tallero</span>
+        </a>
+        <p class="blurb">The friendly score-keeper for card games and game nights. Settle the score.</p>
+        <div class="social-row">
+          <a href="https://www.instagram.com/talleroapp" target="_blank" rel="noopener" aria-label="Tallero on Instagram">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="fcol">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#games">Games</a></li>
+          <li><a href="/rules/">Game rules</a></li>
+          <li><a href="https://apps.apple.com/app/id6781403658" target="_blank" rel="noopener">App Store</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/support.html">Support</a></li>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="mailto:support@gettallero.com">support@gettallero.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span class="small">© <span id="yr">2026</span> Slow Dust Software. All rights reserved.</span>
+      <span class="tm">Phase&nbsp;10® / Yahtzee® / Qwirkle® / Flip&nbsp;7™ / Dutch&nbsp;Blitz® / Mölkky® and other game names are trademarks of their respective owners. Tallero is independent and unaffiliated.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/rules/rules.js"></script>
+</body>
+</html>

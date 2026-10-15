@@ -7,6 +7,9 @@
 //   data-cols     comma-separated sub-columns per player ("+,Total")
 //   data-rows     how many numbered rows (hands / turns)
 //   data-min / data-max / data-default   player-count range for the picker
+//   data-unit     what the picker counts ("players" or "teams")
+//   data-labels   optional "|"-separated row labels instead of numbered rows
+//                 (a Yahtzee card); a label starting with "*" is a total row
 //
 // Printing adds body.print-sheet for the duration of the dialog; the print
 // CSS in tally.css hides everything but #sheet while that class is on. A plain
@@ -33,6 +36,9 @@
   var rows = +sheet.dataset.rows || 20;
   var min = +sheet.dataset.min || 2, max = +sheet.dataset.max || 8;
   var def = +sheet.dataset.default || 4;
+  var unit = sheet.dataset.unit || "players";
+  var labels = sheet.dataset.labels ? sheet.dataset.labels.split("|") : null;
+  var subhead = cols.length > 1;
   var select = sheet.querySelector("select");
   var holder = sheet.querySelector(".sheet__scroll");
   var title = sheet.querySelector(".sheet__title");
@@ -40,29 +46,37 @@
 
   for (var i = min; i <= max; i++) {
     var o = document.createElement("option");
-    o.value = i; o.textContent = i + " players";
+    o.value = i; o.textContent = i + " " + (i === 1 ? unit.replace(/s$/, "") : unit);
     if (i === def) o.selected = true;
     select.appendChild(o);
   }
 
   function build(players) {
     var last = cols.length - 1;
-    var h = '<table><thead><tr class="names"><th class="gap" rowspan="2">#</th>';
+    var who = unit === "teams" ? "Team " : "Player ";
+    var h = '<table' + (labels ? ' class="labeled"' : "") + '><thead><tr class="names"><th class="gap"' +
+      (subhead ? ' rowspan="2"' : "") + ">" + (labels ? "" : "#") + "</th>";
     for (var p = 0; p < players; p++) {
-      h += '<th colspan="' + cols.length + '" class="gap" aria-label="Player ' + (p + 1) + ' name"></th>';
+      h += '<th colspan="' + cols.length + '" class="gap" aria-label="' + who + (p + 1) + ' name"></th>';
     }
-    h += "</tr><tr>";
-    for (p = 0; p < players; p++) {
-      cols.forEach(function (c, ci) { h += "<th" + (ci === last ? ' class="gap"' : "") + ">" + c + "</th>"; });
+    h += "</tr>";
+    if (subhead) {
+      h += "<tr>";
+      for (p = 0; p < players; p++) {
+        cols.forEach(function (c, ci) { h += "<th" + (ci === last ? ' class="gap"' : "") + ">" + c + "</th>"; });
+      }
+      h += "</tr>";
     }
-    h += "</tr></thead><tbody>";
-    for (var r = 1; r <= rows; r++) {
-      h += '<tr><td class="n gap">' + r + "</td>";
+    h += "</thead><tbody>";
+    var rowNames = labels || Array.apply(null, Array(rows)).map(function (_, i) { return String(i + 1); });
+    rowNames.forEach(function (name) {
+      var total = name.charAt(0) === "*";
+      h += "<tr" + (total ? ' class="total"' : "") + '><td class="n gap">' + (total ? name.slice(1) : name) + "</td>";
       for (p = 0; p < players; p++) {
         cols.forEach(function (c, ci) { h += "<td" + (ci === last ? ' class="gap"' : "") + "></td>"; });
       }
       h += "</tr>";
-    }
+    });
     holder.innerHTML = h + "</tbody></table>";
   }
 

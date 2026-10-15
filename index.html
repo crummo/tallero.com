@@ -309,7 +309,8 @@ var GAMES = [
   { key:"rummy",      name:"Rummy",        tile:"oklch(0.928 0.045 78)" }
 ];
 /* Games with a rules page on the site: their chip links to it. */
-var RULES = { farkle:"rules/farkle/", cribbage:"rules/cribbage/", phase10:"rules/phase-10/" };
+var RULES = { farkle:"rules/farkle/", cribbage:"rules/cribbage/", phase10:"rules/phase-10/",
+              yahtzee:"rules/yahtzee/", spades:"rules/spades/", hearts:"rules/hearts/" };
 var GBY = {}; GAMES.forEach(function(g){ GBY[g.key] = g; });
 function icon(key, dark){ return "assets/" + (dark ? "dark/" : "games/") + key + ".svg"; }
 function tileImg(key, dark){

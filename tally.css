@@ -642,3 +642,11 @@ body.beta-live .hero__actions .appstore--soon {
 .card b { font-size: .8em; font-weight: 700; }
 .card i { font-style: normal; font-size: .85em; }
 .card.r { color: #C8323F; }
+.sheet table.labeled { table-layout: auto; }
+.sheet table.labeled thead th:first-child { width: 1%; }
+.sheet table.labeled td:not(.n) { min-width: 64px; }
+.sheet table.labeled td.n { width: 1%; min-width: 128px; text-align: left; padding-left: 10px; color: var(--ink); white-space: nowrap; }
+.sheet tr.total td { background: var(--bg-soft); font-weight: 700; }
+@media print {
+  body.print-sheet .sheet tr.total td { background: #f2f2f2; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
