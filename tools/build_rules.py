@@ -1202,6 +1202,337 @@ page("/rules/qwirkle/", "Qwirkle Rules & Scoring — How to Score a Qwirkle — 
      "How to play Qwirkle: building lines by color or shape, taking a turn, trading tiles, scoring every line, the 12-point Qwirkle, the going-out bonus, and a printable score sheet.",
      [("Game rules", "/rules/"), ("Qwirkle", "/rules/qwirkle/")], qw)
 
+# ------------------------------------------------------------------ RUMMY
+rm = hero("Rummy", "rummy", "oklch(0.928 0.045 78)", "Rummy rules and scoring",
+  "Basic Rummy and Rummy 500: melds, a turn, laying off, going rummy, and how each version is scored — plus a printable score sheet.") + f'''
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="prose">
+      <ul class="toc">
+        <li><a href="#melds">Melds</a></li>
+        <li><a href="#turn">A turn</a></li>
+        <li><a href="#scoring">Scoring</a></li>
+        <li><a href="#r500">Rummy 500</a></li>
+        <li><a href="#score-sheet">Score sheet</a></li>
+      </ul>
+
+      <p class="gist">Draw and discard, building <strong>melds</strong> — runs and sets — and laying them on the table. The first player to get rid of every card goes out, and scores the cards everyone else is still holding. Basic Rummy is below; what changes for Rummy 500 is at the end.</p>
+
+      <h2 id="melds">Melds</h2>
+      <ul>
+        <li>A <strong>run</strong> is three or more cards in sequence, all one suit: {R("5♥")} {R("6♥")} {R("7♥")}</li>
+        <li>A <strong>set</strong> is three or four cards of the same rank: {B("8♠")} {R("8♦")} {B("8♣")}</li>
+        <li>Aces are low in standard play: A-2-3 is a run, Q-K-A isn't. Some tables play aces high instead.</li>
+      </ul>
+
+      <h2 id="turn">Dealing and taking a turn</h2>
+      <ul>
+        <li>Deal 10 cards each with two players, 7 each with three or four, 6 each with five or six. Turn the next card up to start the discard pile; the rest is the stock.</li>
+        <li><strong>Draw</strong> one card — from the stock or the top of the discard pile.</li>
+        <li><strong>Meld</strong> if you like. Standard rules allow one meld per turn; many tables allow as many as you want.</li>
+        <li><strong>Lay off</strong> any number of cards onto melds already on the table, yours or anyone else's.</li>
+        <li><strong>Discard</strong> one card to end your turn. You can't discard the card you just took from the discard pile.</li>
+        <li>If the stock runs out, turn the discard pile over without shuffling to make a new stock.</li>
+      </ul>
+
+      <h2 id="scoring">Scoring a hand</h2>
+      <table class="score-table">
+        <thead><tr><th>Card left in a loser's hand</th><th>Points</th></tr></thead>
+        <tbody>
+          <tr><td>Face cards</td><td class="v">10</td></tr>
+          <tr><td>Number cards</td><td class="v">face value</td></tr>
+          <tr><td>Aces<span class="note">15 at tables that play aces high.</span></td><td class="v">1</td></tr>
+        </tbody>
+      </table>
+      <p>The player who goes out scores the total of every card left in the other players' hands — melded or not. Play to an agreed target, or a set number of deals.</p>
+      <ul>
+        <li><strong>Going rummy:</strong> going out in a single turn, having melded or laid off nothing before, doubles the hand's score (or earns a 10-point bonus at some tables).</li>
+        <li><strong>Penalty scoring:</strong> some tables flip it — each loser scores their own leftovers as penalty points, and the lowest total wins when someone reaches 100.</li>
+        <li><strong>Block Rummy:</strong> the discard pile is never reused. If the stock runs out, the hand ends and everyone counts their cards.</li>
+      </ul>
+
+      <h2 id="r500">Rummy 500 — what changes</h2>
+      <ul>
+        <li>Use 52 cards plus two jokers; five or more players shuffle two decks together. Deal 13 each with two players, 7 each otherwise.</li>
+        <li>You may take a card from deeper in the discard pile — but you must meld it immediately and take every card above it too.</li>
+        <li><strong>Everyone scores their own melds.</strong> A card you lay off on someone else's meld goes in front of you and counts for you.</li>
+        <li>Card values: 2–10 face value, face cards 10, aces and jokers 15 — except an ace used low in A-2-3, which is 1. Jokers are wild; say which card a joker stands for when you meld it.</li>
+        <li>If a discard could have been melded, any other player may call <strong>“Rummy!”</strong>, take the pile down to that card, and meld it.</li>
+        <li>At the end of a hand, score your melded cards minus the cards still in your hand — a bad hand can go negative. First to 500 wins.</li>
+      </ul>
+''' + callout("Whichever Rummy you play.",
+  "Basic, Rummy 500, winner-scores or penalty points — enter each hand and Tallero keeps the totals to your target.") + '''
+    </div>
+  </div>
+</section>
+''' + sheet("Rummy score sheet", "Each hand's points and the running total.", "+,Total", 20, 2, 6, 4)
+
+page("/rules/rummy/", "Rummy Rules & Scoring — Basic Rummy and Rummy 500 — Tallero",
+     "How to play Rummy: runs and sets, how many cards to deal, a turn, laying off, going rummy, scoring a hand, Block Rummy, Rummy 500 rules and scoring, and a printable score sheet.",
+     [("Game rules", "/rules/"), ("Rummy", "/rules/rummy/")], rm)
+
+# ------------------------------------------------------------------ DOMINOES
+dm = hero("Dominoes", "dominoes", "oklch(0.928 0.045 194)", "Dominoes rules and scoring",
+  "All Fives (Muggins-style) dominoes: the spinner, scoring multiples of five, going out and blocked hands — plus Block and Draw dominoes, and a printable score sheet.") + '''
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="prose">
+      <ul class="toc">
+        <li><a href="#deal">The deal</a></li>
+        <li><a href="#play">Playing a hand</a></li>
+        <li><a href="#fives">Scoring fives</a></li>
+        <li><a href="#end">Ending a hand</a></li>
+        <li><a href="#block">Block &amp; Draw</a></li>
+        <li><a href="#score-sheet">Score sheet</a></li>
+      </ul>
+
+      <p class="gist">This is <strong>All Fives</strong>, the dominoes game where you score as you play. Match tiles end to end, and whenever the open ends of the layout add up to a multiple of five, you score that total. Going out scores the pips left in everyone else's hands. First to 250 wins with two players, 200 with three or four.</p>
+
+      <h2 id="deal">The deal</h2>
+      <ul>
+        <li>Use a double-six set: 28 tiles, every pairing from blank to six.</li>
+        <li>Deal 9 tiles each with two players, 7 with three, 5 with four (often as partnerships). The rest stay face down as the <strong>boneyard</strong>.</li>
+        <li>Draw lots for the first lead. After that, whoever went out last hand leads. Any tile may be led.</li>
+      </ul>
+
+      <h2 id="play">Playing a hand</h2>
+      <ul>
+        <li>Play a tile against an open end of the layout so the touching numbers match.</li>
+        <li>Doubles are laid crosswise, so both halves show.</li>
+        <li>The first double played is the <strong>spinner</strong>: it can be played on from all four sides — first its two long sides, then its two ends.</li>
+        <li>Can't play? Draw from the boneyard until you can. Only pass once the boneyard is empty.</li>
+      </ul>
+
+      <h2 id="fives">Scoring multiples of five</h2>
+      <p>After you play, add up the pips on every open end of the layout. If the total is a multiple of five, you score it right away.</p>
+      <table class="score-table">
+        <thead><tr><th>Open end</th><th>Counts</th></tr></thead>
+        <tbody>
+          <tr><td>An ordinary tile<span class="note">The number showing at that end.</span></td><td class="v">its end</td></tr>
+          <tr><td>A double at an end<span class="note">A 5-5 at the end of a line counts 10.</span></td><td class="v">both halves</td></tr>
+          <tr><td>The spinner<span class="note">Counts both its ends until both long sides have tiles; after that only the arm ends count.</span></td><td class="v">see note</td></tr>
+        </tbody>
+      </table>
+      <div class="example">
+        <h3>Example</h3>
+        <p>A 6-6 spinner has three arms: one ending in a 5, one in a 3, and one in a 1-1 double. The spinner itself no longer counts, so the ends are 5 + 3 + 2 = <strong>10</strong> — a multiple of five, so the player who made it scores 10.</p>
+      </div>
+
+      <h2 id="end">Ending a hand</h2>
+      <ul>
+        <li><strong>Going out:</strong> play your last tile and you score the pips still in everyone else's hands, rounded to the nearest five.</li>
+        <li><strong>Blocked:</strong> if nobody can play and the boneyard is empty, whoever holds the fewest pips scores the others' pips, rounded the same way. A tie for fewest scores nothing.</li>
+        <li>Some players divide every score by five and keep count on a cribbage board, playing to 61.</li>
+      </ul>
+
+      <h2 id="block">Block and Draw dominoes</h2>
+      <p>Two simpler games on the same tiles, with no spinner — the layout is a single line, and nothing scores during the hand.</p>
+      <ul>
+        <li><strong>Block:</strong> you never draw. If you can't play, you pass.</li>
+        <li><strong>Draw:</strong> draw from the boneyard until you can play, and pass only when it's empty.</li>
+        <li>The hand ends when someone plays their last tile or nobody can move. The player with the fewest pips wins the hand and scores the pips in the other hands (some tables subtract their own).</li>
+      </ul>
+''' + callout("Fives, tallied.",
+  "Quick-add buttons for every multiple of five during the hand, then enter the leftover pips — Tallero rounds them and adds them up.") + '''
+    </div>
+  </div>
+</section>
+''' + sheet("Dominoes score sheet", "Points as they're scored and the running total.", "+,Total", 25, 2, 4, 2)
+
+page("/rules/dominoes/", "Dominoes Rules & Scoring — All Fives, Block & Draw — Tallero",
+     "How to play dominoes: All Fives scoring with the spinner and multiples of five, going out and blocked hands, how many tiles to deal, plus Block and Draw dominoes, and a printable score sheet.",
+     [("Game rules", "/rules/"), ("Dominoes", "/rules/dominoes/")], dm)
+
+# ------------------------------------------------------------------ DUTCH BLITZ
+db = hero("Dutch Blitz", "dutchblitz", "oklch(0.928 0.045 78)", "Dutch Blitz rules and scoring",
+  "Setting up your piles, playing to the Dutch piles, Post piles, calling Blitz, and scoring each round — plus a printable score sheet.") + '''
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="prose">
+      <ul class="toc">
+        <li><a href="#setup">Setup</a></li>
+        <li><a href="#play">How to play</a></li>
+        <li><a href="#post">Post piles</a></li>
+        <li><a href="#scoring">Scoring</a></li>
+        <li><a href="#score-sheet">Score sheet</a></li>
+      </ul>
+
+      <p class="gist">A speed card game with no turns — everyone plays at once, racing to lay cards in shared piles in the middle. You score for every card you get down, and the round ends the instant someone empties their Blitz pile and shouts <strong>“Blitz!”</strong> Cards left in your Blitz pile cost you. First to 75 wins.</p>
+
+      <h2 id="setup">Setup</h2>
+      <ul>
+        <li>Each player has their own 40-card deck — red, blue, green and yellow, numbered 1 to 10. The backs (pump, carriage, plow, pail) tell the decks apart.</li>
+        <li>Deal yourself a <strong>Blitz pile</strong> of 10 cards, top card face up, and three face-up <strong>Post piles</strong> of one card each.</li>
+        <li>The rest is your <strong>hand</strong>, held face down.</li>
+      </ul>
+
+      <h2 id="play">How to play</h2>
+      <ul>
+        <li>Count cards off your hand three at a time onto a face-up <strong>Wood pile</strong>; only its top card is playable. When your hand runs out, turn the Wood pile over — without shuffling — and keep going.</li>
+        <li>Play from the top of your Blitz pile, your Wood pile, or a Post pile — onto the shared <strong>Dutch piles</strong> in the middle, or onto your own Post piles.</li>
+        <li>Dutch piles start with a 1 and build up to 10, one color per pile. Anyone can play on any Dutch pile.</li>
+        <li>Play with one hand only, one card at a time.</li>
+        <li>If everyone is stuck, each player moves the top card of their Wood pile to the bottom and play resumes.</li>
+      </ul>
+
+      <h2 id="post">Post piles</h2>
+      <ul>
+        <li>Post piles build <strong>down</strong>, and each card must alternate between boy and girl (red and blue cards show a boy, green and yellow a girl).</li>
+        <li>Only the exposed lowest card of a Post pile is playable.</li>
+        <li>When you empty a Post pile, fill it with the top card of your Blitz pile — another way to drain it.</li>
+      </ul>
+
+      <h2 id="scoring">Calling Blitz and scoring</h2>
+      <p>Empty your Blitz pile, shout “Blitz!”, and everyone stops. Sort the Dutch piles by the pictures on the card backs so everyone gets their own cards back, then score:</p>
+      <table class="score-table">
+        <thead><tr><th>Card</th><th>Points</th></tr></thead>
+        <tbody>
+          <tr><td>Each card you played to the Dutch piles</td><td class="v">+1</td></tr>
+          <tr><td>Each card left in your Blitz pile</td><td class="v">−2</td></tr>
+          <tr><td>Cards in your Post piles, Wood pile or hand</td><td class="v">0</td></tr>
+        </tbody>
+      </table>
+      <div class="example">
+        <h3>Example</h3>
+        <p>You got 14 cards into the middle but still had 3 in your Blitz pile: 14 − 6 = <strong>8</strong> for the round. Negative rounds happen.</p>
+      </div>
+      <p>Keep playing rounds until someone reaches 75. Highest score wins.</p>
+''' + callout("Negative rounds welcome.",
+  "Enter each player's net for the round — minus signs and all — and Tallero keeps the race to 75 sorted with the leader on top.") + '''
+      <p class="small" style="margin-top:18px;color:var(--txt-3)">Dutch Blitz® is a trademark of its owner. Tallero is independent and not affiliated with or endorsed by the maker of Dutch Blitz.</p>
+    </div>
+  </div>
+</section>
+''' + sheet("Dutch Blitz score sheet", "Each round's net score and the running total. First to 75.", "+,Total", 20, 2, 8, 4)
+
+page("/rules/dutch-blitz/", "Dutch Blitz Rules & Scoring — Tallero",
+     "How to play Dutch Blitz: the Blitz, Post and Wood piles, building Dutch piles 1 to 10, the boy-girl rule, calling Blitz, scoring +1 and −2, playing to 75, and a printable score sheet.",
+     [("Game rules", "/rules/"), ("Dutch Blitz", "/rules/dutch-blitz/")], db)
+
+# ------------------------------------------------------------------ FLIP 7
+f7 = hero("Flip 7", "flip7", "oklch(0.928 0.045 78)", "Flip 7 rules and scoring",
+  "Hit or stay, busting, the Flip 7 bonus, modifier and action cards, and the order to add up a round — plus a printable score sheet.") + '''
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="prose">
+      <ul class="toc">
+        <li><a href="#deck">The deck</a></li>
+        <li><a href="#round">A round</a></li>
+        <li><a href="#actions">Action cards</a></li>
+        <li><a href="#scoring">Scoring</a></li>
+        <li><a href="#score-sheet">Score sheet</a></li>
+      </ul>
+
+      <p class="gist">A push-your-luck card game. Take cards one at a time and add up their numbers — but draw a number you already have and you <strong>bust</strong>, scoring nothing for the round. Stay to bank your points, or flip seven different numbers for a 15-point bonus. Rounds continue until someone reaches 200.</p>
+
+      <h2 id="deck">The deck</h2>
+      <ul>
+        <li>94 cards. Number cards run from twelve 12s, eleven 11s, ten 10s… down to a single 1, plus one 0 — the bigger the number, the more copies.</li>
+        <li>Six <strong>modifier</strong> cards: +2, +4, +6, +8, +10 and ×2.</li>
+        <li>Nine <strong>action</strong> cards: three each of Freeze, Flip Three and Second Chance.</li>
+      </ul>
+
+      <h2 id="round">Playing a round</h2>
+      <ul>
+        <li>The dealer deals one card face up to each player, themselves included. If an action card comes up, resolve it before carrying on.</li>
+        <li>Then, in turn, each player chooses to <strong>hit</strong> (take one more card) or <strong>stay</strong> (bank their points and leave the round). Keep number cards in one row so duplicates are easy to spot.</li>
+        <li>Draw a second card of a number you already have and you <strong>bust</strong>: you're out of the round with nothing.</li>
+        <li>The round ends when every player has stayed or busted, or when someone gets seven different number cards — a <strong>Flip 7</strong> — which ends it for everyone immediately.</li>
+        <li>Used cards go aside, not back into the deck. Pass the deck left; that player deals next. Reshuffle the discards when the deck runs out.</li>
+      </ul>
+
+      <h2 id="actions">Action cards</h2>
+      <p>Action cards can be played on any <strong>active</strong> player — anyone who hasn't stayed or busted — including yourself. If you're the only active player left, you must take it yourself.</p>
+      <table class="score-table">
+        <tbody>
+          <tr><td><strong>Freeze</strong><span class="note">The player banks what they have and is out of the round.</span></td><td class="v"></td></tr>
+          <tr><td><strong>Flip Three</strong><span class="note">The player must take the next three cards, one at a time, stopping early on a bust or a Flip 7. A Freeze or Flip Three turned up along the way is resolved after all three (if they haven't busted).</span></td><td class="v"></td></tr>
+          <tr><td><strong>Second Chance</strong><span class="note">Keep it. The next time you'd bust, discard it and the duplicate instead. You can hold only one; a second goes to another active player. Unused Second Chances are discarded at the end of the round.</span></td><td class="v"></td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="scoring">Scoring a round</h2>
+      <p>Add it up in this order:</p>
+      <ol>
+        <li>Add your number cards.</li>
+        <li>If you have the ×2, double that sum.</li>
+        <li>Add any +2 to +10 modifiers.</li>
+        <li>If you flipped 7 numbers, add 15.</li>
+      </ol>
+      <div class="example">
+        <h3>Example</h3>
+        <p>Numbers 3, 11, 5, 7 and 10 make 36. With the ×2 that's 72. With a +10 instead, it would be 46.</p>
+      </div>
+      <ul>
+        <li>Modifiers aren't number cards: you can't bust on them, and they don't count toward the seven.</li>
+        <li>You still score modifiers with no number cards in front of you — except the ×2, which has nothing to double.</li>
+        <li>The 0 scores nothing, but it counts as one of your seven different numbers.</li>
+      </ul>
+
+      <h2>Ending the game</h2>
+      <p>At the end of a round in which at least one player reaches 200, the player with the most points wins — not necessarily the first to 200.</p>
+''' + callout("Busts and Flip 7s, logged.",
+  "Enter each player's round total — leave a bust blank — and tag a Flip 7 with one tap. Tallero settles the race to 200 at the end of the round.") + '''
+      <p class="small" style="margin-top:18px;color:var(--txt-3)">Flip&nbsp;7™ is a trademark of its owner. Tallero is independent and not affiliated with or endorsed by the maker of Flip&nbsp;7.</p>
+    </div>
+  </div>
+</section>
+''' + sheet("Flip 7 score sheet", "Each round's score and the running total. Race to 200.", "+,Total", 15, 3, 8, 4)
+
+page("/rules/flip-7/", "Flip 7 Rules & Scoring — Tallero",
+     "How to play Flip 7: the deck, hit or stay, busting, the Flip 7 bonus, Freeze, Flip Three and Second Chance, modifier cards, how to score a round, and a printable score sheet.",
+     [("Game rules", "/rules/"), ("Flip 7", "/rules/flip-7/")], f7)
+
+# ------------------------------------------------------------------ MINI GOLF
+mg = hero("Mini Golf", "minigolf", "oklch(0.928 0.045 150)", "Mini golf scoring",
+  "How to keep score in mini golf: strokes, par, birdies and bogeys, stroke limits, and a printable 18-hole scorecard.") + '''
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="prose">
+      <ul class="toc">
+        <li><a href="#basics">The basics</a></li>
+        <li><a href="#par">Par and the names</a></li>
+        <li><a href="#house">Common course rules</a></li>
+        <li><a href="#score-sheet">Scorecard</a></li>
+      </ul>
+
+      <p class="gist">Every stroke counts against you. Write down how many strokes each player takes on each hole, add them up at the end, and the <strong>lowest total wins</strong>. Most courses are 9 or 18 holes.</p>
+
+      <h2 id="basics">The basics</h2>
+      <ul>
+        <li>Every swing at the ball is a stroke, whether it moves an inch or the length of the hole.</li>
+        <li>The hole is finished when the ball drops in. Write down that player's strokes and move on.</li>
+      </ul>
+
+      <h2 id="par">Par, birdies and bogeys</h2>
+      <p><strong>Par</strong> is the number of strokes a hole should take — the course usually prints it on the scorecard or at each tee. Scores are named by how they compare:</p>
+      <table class="score-table">
+        <thead><tr><th>Result</th><th>Strokes</th></tr></thead>
+        <tbody>
+          <tr><td>Hole in one</td><td class="v">1</td></tr>
+          <tr><td>Eagle</td><td class="v">2 under par</td></tr>
+          <tr><td>Birdie</td><td class="v">1 under par</td></tr>
+          <tr><td>Par</td><td class="v">even</td></tr>
+          <tr><td>Bogey</td><td class="v">1 over par</td></tr>
+          <tr><td>Double bogey</td><td class="v">2 over par</td></tr>
+        </tbody>
+      </table>
+      <p>Par only changes how a score is described, not the score itself — the winner is still whoever took the fewest strokes.</p>
+
+      <h2 id="house">Course rules</h2>
+      <p>Mini golf has no single official rulebook. Most courses post their own on the scorecard — commonly a maximum number of strokes per hole, what to do when a ball leaves the course, and whether you can move a ball away from a wall. Agree on them before the first tee.</p>
+''' + callout("Leave the pencil at the counter.",
+  "Tap + for each stroke and Next Hole — Tallero tracks par, birdies and bogeys for 9 or 18 holes, and fills skipped holes at the end.") + '''
+    </div>
+  </div>
+</section>
+''' + sheet("Mini golf scorecard", "Strokes for every hole, front nine, back nine and total.", "Strokes", 0, 1, 8, 4,
+            labels=["Par"] + [f"Hole {i}" for i in range(1, 10)] + ["*Out"] + [f"Hole {i}" for i in range(10, 19)] + ["*In", "*Total"])
+
+page("/rules/mini-golf/", "Mini Golf Scoring — How to Keep Score & Printable Scorecard — Tallero",
+     "How to keep score in mini golf: strokes, par, birdies, bogeys and holes in one, common course rules like stroke limits, and a printable 18-hole mini golf scorecard.",
+     [("Game rules", "/rules/"), ("Mini Golf", "/rules/mini-golf/")], mg)
+
 # ------------------------------------------------------------------ HUB
 def card(key, tile, name, blurb, path):
     return f'''      <a class="rules-card" href="{path}">
@@ -1237,11 +1568,16 @@ hub = '''
     card("cornhole", "oklch(0.928 0.045 150)", "Cornhole", "Cancellation scoring, dead bags, board setup, and winning at 21.", "/rules/cornhole/"),
     card("golf_cards", "oklch(0.928 0.045 150)", "Golf (Cards)", "Six-card Golf: card values, cancelling pairs, and the other layouts.", "/rules/golf/"),
     card("qwirkle", "oklch(0.928 0.045 255)", "Qwirkle", "Building lines, scoring every turn, and the 12-point Qwirkle.", "/rules/qwirkle/"),
+    card("rummy", "oklch(0.928 0.045 78)", "Rummy", "Basic Rummy and Rummy 500: melds, laying off, and scoring a hand.", "/rules/rummy/"),
+    card("dominoes", "oklch(0.928 0.045 194)", "Dominoes", "All Fives scoring with the spinner, plus Block and Draw.", "/rules/dominoes/"),
+    card("dutchblitz", "oklch(0.928 0.045 78)", "Dutch Blitz", "Your piles, the boy-girl rule, calling Blitz, and +1 / −2 scoring.", "/rules/dutch-blitz/"),
+    card("flip7", "oklch(0.928 0.045 78)", "Flip 7", "Hit or stay, action cards, and the order to add up a round.", "/rules/flip-7/"),
+    card("minigolf", "oklch(0.928 0.045 150)", "Mini Golf", "Strokes, par, birdies and bogeys, and an 18-hole scorecard.", "/rules/mini-golf/"),
 ]) + '''
     </div>
   </div>
 </section>
 '''
 page("/rules/", "Game Rules & Scoring — Tallero",
-     "Rules and scoring guides for Farkle, Cribbage, Phase 10, Yahtzee, Spades, Hearts, Euchre, Gin Rummy, Mölkky, Cornhole, Golf and Qwirkle, with printable score sheets — from Tallero, the score-keeper for game night.",
+     "Rules and scoring guides for 17 games — Cribbage, Euchre, Spades, Yahtzee, Flip 7, Mölkky and more — with printable score sheets, from Tallero, the score-keeper for game night.",
      [("Game rules", "/rules/")], hub)

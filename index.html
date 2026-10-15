@@ -312,7 +312,9 @@ var GAMES = [
 var RULES = { farkle:"rules/farkle/", cribbage:"rules/cribbage/", phase10:"rules/phase-10/",
               yahtzee:"rules/yahtzee/", spades:"rules/spades/", hearts:"rules/hearts/",
               euchre:"rules/euchre/", ginrummy:"rules/gin-rummy/", molkky:"rules/molkky/",
-              cornhole:"rules/cornhole/", golf_cards:"rules/golf/", qwirkle:"rules/qwirkle/" };
+              cornhole:"rules/cornhole/", golf_cards:"rules/golf/", qwirkle:"rules/qwirkle/",
+              rummy:"rules/rummy/", dominoes:"rules/dominoes/", dutchblitz:"rules/dutch-blitz/",
+              flip7:"rules/flip-7/", minigolf:"rules/mini-golf/" };
 var GBY = {}; GAMES.forEach(function(g){ GBY[g.key] = g; });
 function icon(key, dark){ return "assets/" + (dark ? "dark/" : "games/") + key + ".svg"; }
 function tileImg(key, dark){
